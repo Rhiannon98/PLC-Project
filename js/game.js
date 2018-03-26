@@ -1,5 +1,5 @@
 'use strict';
-var endPoint = 10;
+var endPoint = 20;
 
 //holding the various options
 var optionArray = [];
@@ -8,7 +8,19 @@ var playerArray = [];
 
 var optionsElement = document.getElementById('options');
 
-// var progress = localStorage.getItem('playerArray');
+var progress = localStorage.getItem('playerArray');
+playerArray = JSON.parse(progress);
+
+
+function checkName() {
+  for(var n in playerArray){
+    if(playerName === n.name){
+      var player = n;
+      return player;
+    }
+  }
+}
+
 
 
 function Player(name, time, money, energy, distanceTravelled = 0){
@@ -19,7 +31,7 @@ function Player(name, time, money, energy, distanceTravelled = 0){
   this.distanceTravelled = distanceTravelled;
   playerArray.push(this);
 }
-var player = new Player ('Bob', 10, 10, 10);
+
 
 function Option(name, time, money, energy, distance) {
   this.name = name;
@@ -71,6 +83,7 @@ function optionClick(event) {
 
 optionsElement.addEventListener('click', optionClick);
 
+checkName();
 
 
 
