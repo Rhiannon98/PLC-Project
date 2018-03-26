@@ -36,25 +36,29 @@ function optionClick(event) {
   var clickedOption = event.target.id;
 
   if(clickedOption === 'option1') {
-    testPlayer.money--;
+    testPlayer.money -= 10;
     testPlayer.distanceTravelled +=3;
     console.log(testPlayer);
   } else if
   (clickedOption === 'option2') {
-    testPlayer.time--;
+    testPlayer.time-= 10;
     testPlayer.distanceTravelled +=2;
     console.log(testPlayer);
   }
   else if
   (clickedOption === 'option3'){
-    testPlayer.energy++;
+    testPlayer.energy -= 10;
     testPlayer.distanceTravelled ++;
     console.log(testPlayer);
   }
   if (testPlayer.distanceTravelled >= endPoint){
     //this is where the game ends
     optionsElement.removeEventListener('click', optionClick);
-    console.log('game end');
+    console.log('game won');
+  }
+  else if ((testPlayer.money <= 0) || (testPlayer.energy <= 0) || (testPlayer.time <= 0)){
+    optionsElement.removeEventListener('click', optionClick);
+    console.log('game lost');
   }
 }
 
