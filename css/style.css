@@ -1,34 +1,43 @@
 html{
+
   height: 100%;
-  background: radial-gradient(#BDE393, #64952F, #426F10);
+  background: radial-gradient(rgb(226, 240, 194), rgb(198, 233, 160), rgb(164, 207, 114));
 }
 
 body {
-  margin: 2em;
+
+  width: 80%;
+  margin: auto;
+  margin-top: 20px;
 }
 
 header ul li{
+
   display: inline-block;
   text-decoration: none;
 }
 
 img {
+
   display: block;
   width: 400px;
   margin: auto;
 }
 
 section .deck{
+
   text-align: center;
 }
 
 .deck {
+
   padding: .5em;
   border: 2px solid #21332E;
   margin: auto;
 }
 
 .card {
+
   display: table-cell;
   position: relative;
 }
