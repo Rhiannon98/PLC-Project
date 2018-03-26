@@ -1,0 +1,68 @@
+
+*{
+  box-sizing: border-box;
+}
+
+body {
+
+  height:100%;
+  background: radial-gradient(seashell, darkkhaki, seagreen, hotpink);
+  margin: 2em;
+  
+}
+
+header {
+
+  padding: 3em;
+  background: burlywood;
+
+  
+}
+
+header nav ul{
+
+  list-style-type: none;
+  margin: 0;
+  float: right;
+  clear: right;
+  
+
+}
+
+header nav ul li {
+
+  display: inline-block;
+  padding-right: 3em;
+  padding-left: 2em;
+  line-height: 2em;
+  border: solid 2px black;
+
+  
+}
+
+.cardsection {
+
+  text-align: center;
+  margin: 2em;
+}
+
+.card {
+
+  border: solid 5px black;
+  display: inline-block;
+  margin: 2em;
+}
+
+section div header {
+
+  background: cadetblue;
+}
+
+footer {
+
+  text-align: center;
+  margin-top: 3em;
+}
+
+
+
