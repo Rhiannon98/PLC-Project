@@ -1,4 +1,7 @@
 'use strict';
+
+// TODO : finish and work on game.js
+
 var endPoint = 20;
 
 //holding the various options
@@ -13,8 +16,8 @@ playerArray = JSON.parse(progress);
 
 
 function checkName() {
-  for(var n in playerArray){
-    if(playerName === n.name){
+  for (var n in playerArray) {
+    if (playerName === n.name) {
       var player = n;
       return player;
     }
@@ -23,7 +26,7 @@ function checkName() {
 
 
 
-function Player(name, time, money, energy, distanceTravelled = 0){
+function Player(name, time, money, energy, distanceTravelled = 0) {
   this.name = name;
   this.time = time;
   this.money = money;
@@ -43,35 +46,35 @@ function Option(name, time, money, energy, distance) {
 }
 
 var testOption1 = new Option('test', 5, 5, 5);
-var testOption2 = new Option('test2', 3,3,3);
+var testOption2 = new Option('test2', 3, 3, 3);
 var testOption3 = new Option('test3', 1, 1, 1);
 
 function optionClick(event) {
 
   var clickedOption = event.target.id;
 
-  if(clickedOption === 'option1') {
+  if (clickedOption === 'option1') {
     player.money -= 10;
-    player.distanceTravelled +=3;
+    player.distanceTravelled += 3;
     console.log(player);
   } else if
   (clickedOption === 'option2') {
-    player.time-= 10;
-    player.distanceTravelled +=2;
+    player.time -= 10;
+    player.distanceTravelled += 2;
     console.log(player);
   }
   else if
-  (clickedOption === 'option3'){
+  (clickedOption === 'option3') {
     player.energy -= 10;
-    player.distanceTravelled ++;
+    player.distanceTravelled++;
     console.log(player);
   }
-  if (player.distanceTravelled >= endPoint){
+  if (player.distanceTravelled >= endPoint) {
     //this is where the game ends
     optionsElement.removeEventListener('click', optionClick);
     console.log('game won');
   }
-  else if ((player.money <= 0) || (player.energy <= 0) || (player.time <= 0)){
+  else if ((player.money <= 0) || (player.energy <= 0) || (player.time <= 0)) {
     optionsElement.removeEventListener('click', optionClick);
     console.log('game lost');
   }

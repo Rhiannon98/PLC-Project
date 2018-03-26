@@ -6,7 +6,7 @@ function validateInput(event) {
   event.preventDefault();
 
   //proof of life
-  alert(event.target.name.value);
+  alert('hello ' + event.target.name.value + '!');
 }
 
 userNameElement.addEventListener('submit', validateInput);
