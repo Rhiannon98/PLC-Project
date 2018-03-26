@@ -1,12 +1,15 @@
 'use strict';
 var endPoint = 10;
 
+//holding the various options
 var optionArray = [];
-
-//TODO: pull from local storage (test name is ted)
-var playerName = 'ted';
+//holding the varius player
+var playerArray = [];
 
 var optionsElement = document.getElementById('options');
+
+// var progress = localStorage.getItem('playerArray');
+
 
 function Player(name, time, money, energy, distanceTravelled = 0){
   this.name = name;
@@ -14,9 +17,9 @@ function Player(name, time, money, energy, distanceTravelled = 0){
   this.money = money;
   this.energy = energy;
   this.distanceTravelled = distanceTravelled;
+  playerArray.push(this);
 }
-
-var testPlayer = new Player(playerName, 10, 10, 10);
+var player = new Player ('Bob', 10, 10, 10);
 
 function Option(name, time, money, energy, distance) {
   this.name = name;
@@ -36,30 +39,31 @@ function optionClick(event) {
   var clickedOption = event.target.id;
 
   if(clickedOption === 'option1') {
-    testPlayer.money -= 10;
-    testPlayer.distanceTravelled +=3;
-    console.log(testPlayer);
+    player.money -= 10;
+    player.distanceTravelled +=3;
+    console.log(player);
   } else if
   (clickedOption === 'option2') {
-    testPlayer.time-= 10;
-    testPlayer.distanceTravelled +=2;
-    console.log(testPlayer);
+    player.time-= 10;
+    player.distanceTravelled +=2;
+    console.log(player);
   }
   else if
   (clickedOption === 'option3'){
-    testPlayer.energy -= 10;
-    testPlayer.distanceTravelled ++;
-    console.log(testPlayer);
+    player.energy -= 10;
+    player.distanceTravelled ++;
+    console.log(player);
   }
-  if (testPlayer.distanceTravelled >= endPoint){
+  if (player.distanceTravelled >= endPoint){
     //this is where the game ends
     optionsElement.removeEventListener('click', optionClick);
     console.log('game won');
   }
-  else if ((testPlayer.money <= 0) || (testPlayer.energy <= 0) || (testPlayer.time <= 0)){
+  else if ((player.money <= 0) || (player.energy <= 0) || (player.time <= 0)){
     optionsElement.removeEventListener('click', optionClick);
     console.log('game lost');
   }
+  localStorage.setItem('playerArray', JSON.stringify(playerArray));
 }
 
 
