@@ -1,7 +1,19 @@
 'use strict';
 var endPoint = 100;
 
+//TODO: pull from local storage (test name is ted)
+var playerName = 'ted';
+
 var optionsElement = document.getElementById('options');
+
+function Player(name, time, money, energy){
+  this.name = name;
+  this.time = time;
+  this.money = money;
+  this.energy = energy;
+}
+
+var testPlayer = new Player(playerName, 10, 10, 10);
 
 function Option(name, time, money, energy) {
 
