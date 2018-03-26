@@ -11,18 +11,26 @@ function Option(name, time, money, energy) {
   this.energy = energy;
 }
 
-var testOption = new Option('test', 5, 5, 5);
+var testOption1 = new Option('test', 5, 5, 5);
+var testOption2 = new Option('test2', 3,3,3);
+var testOption3 = new Option('test3', 1, 1, 1);
 
 function optionClick(event) {
 
   var clickedOption = event.target.id;
 
   if(clickedOption === 'option1') {
-    console.log(testOption);
+    console.log('option 1');
+  } else if
+  (clickedOption === 'option2') {
+    console.log('option 2');
   }
-
-  // console.log(event.target.id);
+  else if
+  (clickedOption === 'option3'){
+    console.log('option 3');
+  }
 }
+
 
 optionsElement.addEventListener('click', optionClick);
 
