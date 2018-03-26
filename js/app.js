@@ -2,9 +2,11 @@
 
 var userNameElement = document.getElementById('user');
 
-function validateInput(event){
+function validateInput(event) {
   event.preventDefault();
-  console.log(event.target.name.value);
+
+  //proof of life
+  alert(event.target.name.value);
 }
 
-userNameElement.addEventListener('click', validateInput);
+userNameElement.addEventListener('submit', validateInput);
