@@ -19,10 +19,16 @@ header ul li{
 
 img {
 
-  background: aquamarine;
+  background: repeating-radial-gradient(
+  circle,
+  #264900,
+  #8DBC5B 10px,
+  #426F10 10px, 
+  #d0f095 20px
+  );  
   display: block;
-  width: 400px;
   margin: auto;
+  border-radius: 30px;
 }
 
 section .deck{
