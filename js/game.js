@@ -14,7 +14,6 @@ var playerArray = [];
 // getting the element from the dom
 var optionsElement = document.getElementById('options');
 
-
 // creating constructor function for new player instances
 function Player(name, time, money, energy, distanceTravelled = 0) {
   this.name = name;
@@ -26,7 +25,7 @@ function Player(name, time, money, energy, distanceTravelled = 0) {
 }
 
 
-// to create new questions (options)
+// to create new questions / options
 function Option(name, time, money, energy, distance) {
   this.name = name;
   this.time = time;
@@ -73,9 +72,13 @@ function saveProgress() {
   localStorage.setItem('playerArray', JSON.stringify(playerArray));
 }
 
-var testOption1 = new Option('test', 5, 5, 5);
-var testOption2 = new Option('test2', 3, 3, 3);
-var testOption3 = new Option('test3', 1, 1, 1);
+function findPlayer(element) {
+  return element.name === JSON.parse(localStorage.getItem('validateInput'));
+}
+
+// var testOption1 = new Option('test', 5, 5, 5);
+// var testOption2 = new Option('test2', 3, 3, 3);
+// var testOption3 = new Option('test3', 1, 1, 1);
 
 // creating click event function
 function optionClick(event) {
@@ -85,32 +88,32 @@ function optionClick(event) {
 
   // change the players resources based on the option that they clicked on
   if (clickedOption === 'option1') {
-    Player.money -= 5;
-    Player.distanceTravelled += 3;
-    console.log(Player);
+    currentPlayer.money -= 5;
+    currentPlayer.distanceTravelled += 3;
+    console.log(currentPlayer);
   } else if
   (clickedOption === 'option2') {
-    Player.time -= 5;
-    Player.distanceTravelled += 2;
-    console.log(Player);
+    currentPlayer.time -= 5;
+    currentPlayer.distanceTravelled += 2;
+    console.log(currentPlayer);
   }
   else if
   (clickedOption === 'option3') {
-    Player.energy -= 5;
-    Player.distanceTravelled++;
-    console.log(Player);
+    currentPlayer.energy -= 5;
+    currentPlayer.distanceTravelled++;
+    console.log(currentPlayer);
   }
   else if (clickedOption === 'saveProgress') {
     saveProgress();
   }
   // if user at end, they win
-  if (Player.distanceTravelled >= endPoint) {
+  if (currentPlayer.distanceTravelled >= endPoint) {
     //this is where the game ends
     optionsElement.removeEventListener('click', optionClick);
     console.log('game won');
   }
   // if player has 0 of any resource = LOSER
-  else if ((Player.money <= 0) || (Player.energy <= 0) || (Player.time <= 0)) {
+  else if ((currentPlayer.money <= 0) || (currentPlayer.energy <= 0) || (currentPlayer.time <= 0)) {
     optionsElement.removeEventListener('click', optionClick);
     console.log('game lost');
   }
@@ -121,7 +124,8 @@ function optionClick(event) {
 optionsElement.addEventListener('click', optionClick);
 
 getUser();
-// checkName();
+var currentPlayer = playerArray[playerArray.findIndex(findPlayer)];
+
 
 
 
