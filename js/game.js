@@ -11,8 +11,9 @@ var optionArray = [];
 //holding the varius player
 var playerArray = [];
 
-// getting the element from the dom
+// getting the elements from the dom
 var optionsElement = document.getElementById('options');
+var questionText = document.getElementById('questionText');
 
 // creating constructor function for new player instances
 function Player(name, time, money, energy, distanceTravelled = 0) {
@@ -34,6 +35,23 @@ function Option(name, time, money, energy, distance) {
   this.distance = distance;
   optionArray.push(this);
 }
+
+// create question constructor
+function Question(Qtext, type, amount) {
+  // what the question is
+  this.text = Qtext;
+  // type is a resource as a string
+  this.resource = type;
+  // amount is the number taken from that resource
+  this.amount = amount;
+}
+// add method to question to load question on page
+Question.prototype.loadText = function () {
+  questionText.textContent = this.text;
+};
+
+// creating instances
+var initialQuest = new Question('Choose an option!', 'energy', 0);
 
 // pull the userName from validateInput in app.js
 function getUser() {
@@ -120,12 +138,17 @@ function optionClick(event) {
 
 }
 
-
+// making the event listener listen (lol)
 optionsElement.addEventListener('click', optionClick);
 
+// calling the function if the user stored in LS
 getUser();
+
+// checks the player on page load
 var currentPlayer = playerArray[playerArray.findIndex(findPlayer)];
 
+// calling the Question function
+initialQuest.loadText();
 
 
 
