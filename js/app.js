@@ -14,7 +14,13 @@ function validateInput(event) {
   //proof of life
   alert('hello ' + userName + '!');
   localStorage.setItem('validateInput', JSON.stringify(userName));
+
+  //loading game.html on click after user validation
+
+  location.href = "game.html";
 }
 
 // event listener for above event function
 userNameElement.addEventListener('submit', validateInput);
+
+
