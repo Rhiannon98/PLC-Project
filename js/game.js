@@ -57,11 +57,16 @@ Question.prototype.loadText = function () {
 };
 
 // function to randomize questions from position[1]
-
+function getRandomQuest() {
+  var randomNum = Math.ceil(Math.random() * questionArray.length);
+  console.log(randomNum);
+  return questionArray[randomNum];
+}
 
 // creating instances
 var initialQuest = new Question('Choose an option!', 'energy', 0);
 var questTwo = new Question('Choose a different option?', 'ENERGY', 0);
+var questThree = new Question('Are you an idiot?', 'eNeRgY', 0);
 
 // pull the userName from validateInput in app.js
 
@@ -140,14 +145,15 @@ function optionClick(event) {
     //this is where the game ends
     optionsElement.removeEventListener('click', optionClick);
     console.log('game won');
+    return;
   }
   // if player has 0 of any resource = LOSER
   else if ((currentPlayer.money <= 0) || (currentPlayer.energy <= 0) || (currentPlayer.time <= 0)) {
     optionsElement.removeEventListener('click', optionClick);
     console.log('game lost');
+    return;
   }
-
-
+  console.log(getRandomQuest());
 }
 
 // making the event listener listen (lol)
@@ -159,7 +165,7 @@ getUser();
 // checks the player on page load
 var currentPlayer = playerArray[playerArray.findIndex(findPlayer)];
 
-// calling the Question function
+// calling the first Question function
 initialQuest.loadText();
 
 
