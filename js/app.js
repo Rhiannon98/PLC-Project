@@ -11,13 +11,22 @@ function validateInput(event) {
 
   var userName = event.target.name.value;
 
+  if(userName === '') {
+
+    alert('Please enter valid username');
+
+  } else {
+
+    alert('hello ' + userName + '!');
+    localStorage.setItem('validateInput', JSON.stringify(userName));
+  
+    //loading game.html on click after user validation
+  
+    location.href = "game.html";
+  }
+ 
   //proof of life
-  alert('hello ' + userName + '!');
-  localStorage.setItem('validateInput', JSON.stringify(userName));
 
-  //loading game.html on click after user validation
-
-  location.href = "game.html";
 }
 
 // event listener for above event function
