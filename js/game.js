@@ -4,7 +4,9 @@
 
 // TODO: create current user variable to access later
 
+
 var endPoint = 100;
+
 
 //holding the various options
 var optionArray = [];
@@ -13,7 +15,9 @@ var playerArray = [];
 //holding our questions
 var questionArray = [];
 
+
 // getting the elements from the dom
+
 var optionsElement = document.getElementById('options');
 var questionText = document.getElementById('questionText');
 
@@ -39,6 +43,7 @@ function Option(name, time, money, energy, distance) {
   this.distance = distance;
   optionArray.push(this);
 }
+
 
 // create question constructor
 function Question(Qtext, type, amount) {
@@ -77,6 +82,7 @@ new Question('Are you an elf?', 'money', -5);
 
 // pull the userName from validateInput in app.js
 // confirm that this user is or is not the same
+
 function getUser() {
   var newUser = localStorage.getItem('validateInput');
 
@@ -86,12 +92,15 @@ function getUser() {
 
   var progress = localStorage.getItem('playerArray');
   if (progress === null) {
+
     var newPlayer = new Player(newUser, 100, 100, 100);
+
   } else {
     playerArray = JSON.parse(progress);
     var checkUser = checkName(newUser);
     if (checkUser === false) {
       newPlayer = new Player(newUser, 100, 100, 100);
+
     }
   }
 }
@@ -150,11 +159,13 @@ function optionClick(event) {
   // change the players resources based on the option that they clicked on
   if (clickedOption === 'option1') {
     // currentPlayer.money -= 5;
+
     currentPlayer.distanceTravelled += 3;
     console.log(currentPlayer);
   } else if
   (clickedOption === 'option2') {
     // currentPlayer.time -= 5;
+
     currentPlayer.distanceTravelled += 2;
     console.log(currentPlayer);
   }
