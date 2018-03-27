@@ -36,6 +36,27 @@ function addNode(node, targetName, start){
     return false;
   }
 }
+//Links the linker to the linkee
+function linkNodes(linkername, linkeename, start){
+  var linker = findNode(linkername, start);
+  var linkee = findNode(linkeename, start);
+  if ((linker !== false) && ( linkee !== false)){
+    linker.links.push(linkee);
+    return true;
+  }
+  return false;
+}
+//zombiecode for removeNode function
+// function removeNode(targetName, start){
+//   nodeToRemove = findNode(targetName, start);
+//   if (nodeToRemove === false){
+//     return false;
+//   }
+//   else {
+//    delete nodeToRemove
+//    //if we ever need to use this, findNode will need to be able to handle Null
+//   }
+//}
 
 //Data will be whatever object the node is storing and links is an array of Nodes this can vist
 function Node( name, links = []){
