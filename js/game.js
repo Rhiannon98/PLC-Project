@@ -17,6 +17,7 @@ var questionText = document.getElementById('questionText');
 
 // creating constructor function for new player instances
 function Player(name, time, money, energy, distanceTravelled = 0) {
+
   this.name = name;
   this.time = time;
   this.money = money;
@@ -28,6 +29,7 @@ function Player(name, time, money, energy, distanceTravelled = 0) {
 
 // to create new questions / options
 function Option(name, time, money, energy, distance) {
+
   this.name = name;
   this.time = time;
   this.money = money;
@@ -36,6 +38,7 @@ function Option(name, time, money, energy, distance) {
   optionArray.push(this);
 }
 
+<<<<<<< HEAD
 // create question constructor
 function Question(Qtext, type, amount) {
   // what the question is
@@ -54,6 +57,9 @@ Question.prototype.loadText = function () {
 var initialQuest = new Question('Choose an option!', 'energy', 0);
 
 // pull the userName from validateInput in app.js
+=======
+
+>>>>>>> dd46a57b2e2eb00215092536fe2b0fc8192e61c2
 function getUser() {
   var newUser = localStorage.getItem('validateInput');
 
@@ -135,6 +141,7 @@ function optionClick(event) {
     optionsElement.removeEventListener('click', optionClick);
     console.log('game lost');
   }
+
 
 }
 
