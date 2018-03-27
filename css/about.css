@@ -6,35 +6,47 @@
 body {
 
   height:100%;
-  background: radial-gradient(seashell, darkkhaki, seagreen, darkgreen);
-  margin: 2em;
+  background: radial-gradient(darkgreen, green, seagreen, darkgreen);
   
 }
 
 header {
-
-  padding: 3em;
+  width: 100%;
   overflow: hidden;
-  
+  margin:0px;
+  background-color: cadetblue;
+  border-radius: 25px;
+}
+header img{
+  float: left;
+  margin: 0;
+  width: 50%;
 }
 
 header nav ul{
 
   list-style-type: none;
-  margin: 0;
+  margin-top: ;
   float: right;
-  clear: right;
   overflow: hidden;
-
+  width: auto;
+  clear: left;
+  margin-bottom: 0;
+  margin-right: 5em;
+  
 }
 
 header nav ul li {
 
   display: inline-block;
-  padding-right: 3em;
-  padding-left: 2em;
   line-height: 2em;
-  border: solid 2px black;  
+  border: solid 2px black; 
+  border-radius: 25px 25px 0px 0px;
+  padding: .5em;
+  margin-left: -.25em;
+  background: radial-gradient( seagreen, darkgreen);
+  font-weight: bold;
+
 }
 nav ul li:hover{
   background-color: gray;
@@ -42,26 +54,29 @@ nav ul li:hover{
 }
 
 .cardsection {
-
+  width: 100%;
   text-align: center;
-  margin: 2em;
 }
 
 .card {
-
+  width: 23%;
   border: solid 5px black;
   display: inline-block;
-  margin: 2em;
+  margin-top: 1em;;
   border-radius: 25px;
   overflow:hidden;
+  width: auto;
 }
 .card img{
   border-radius: 50%;
+  width:100%;
+  margin: -.75em;
 }
 
 section div header {
 
   background: cadetblue;
+  border-radius: 0px;
 }
 
 footer {
