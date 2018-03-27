@@ -28,7 +28,7 @@ img {
   );  
   display: block;
   margin: auto;
-  border-radius: 30px;
+  border-radius: 15px 70px;
 }
 
 section .deck{
