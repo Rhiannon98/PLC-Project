@@ -1,10 +1,20 @@
 'use strict';
 
+// grabbing the element from the dom
 var userNameElement = document.getElementById('user');
 
-function validateInput(event){
+// creating a validation prompt upon submit
+// naming it validation to edit this later
+function validateInput(event) {
+  //self explanatory
   event.preventDefault();
-  console.log(event.target.name.value);
+
+  var userName = event.target.name.value;
+
+  //proof of life
+  alert('hello ' + userName + '!');
+  localStorage.setItem('validateInput', JSON.stringify(userName));
 }
 
-userNameElement.addEventListener('click', validateInput);
+// event listener for above event function
+userNameElement.addEventListener('submit', validateInput);
