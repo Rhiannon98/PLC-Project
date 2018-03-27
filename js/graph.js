@@ -1,6 +1,6 @@
 'use strict';
 
-function Tree(head = null){
+function Graph(head = null){
   this.head = head;
 }
 //This function will search the Tree for the Parent, then add a node to its links. If the parent is not in the tree, it does nothing
@@ -79,5 +79,5 @@ function Node( name, links = []){
 }
 
 var startNode = new Node('start');
-var tree = new Tree(startNode);
+var graph = new Graph(startNode);
 
