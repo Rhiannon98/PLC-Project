@@ -4,11 +4,10 @@ function Tree(head = null){
   this.head = head;
 }
 //This function will search the Tree for the Parent, then add a node to its links. If the parent is not in the tree, it does nothing
-function addNode(node, targetName, start){
+function findNode(targetName, start){
   //if this is the right parent, give it a new link
   if (start.name === targetName){
-    start.links.push(node);
-    return true;
+    return start;
   }
   //If there are no more places to visit, return false
   else if (start.links === []){
@@ -17,12 +16,23 @@ function addNode(node, targetName, start){
   //otherwise recursively search each link, stopping at the first successful find
   else {
     for (let i in start.links){
-      var result = addNode(node, targetName, start.links[i]);
+      var result = findNode(targetName, start.links[i]);
       //if this branch has what we are looking for, return true
-      if (result === true){
-        return true;
+      if (result !== false){
+        return result;
       }
     }
+    return false;
+  }
+}
+function addNode(node, targetName, start){
+  var targetNode = findNode(targetName, start);
+  if (targetNode !== false){
+    targetNode.links.push(node);
+    return true;
+  }
+  else {
+    return false;
   }
 }
 
