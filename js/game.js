@@ -8,18 +8,14 @@ var playerArray = [];
 
 var optionsElement = document.getElementById('options');
 
-var progress = localStorage.getItem('playerArray');
-playerArray = JSON.parse(progress);
-
-
-function checkName() {
-  for(var n in playerArray){
-    if(playerName === n.name){
-      var player = n;
-      return player;
-    }
-  }
-}
+// function checkName() {
+//   for(var n in playerArray){
+//     if(playerName === n.name){
+//       var player = n;
+//       return player;
+//     }
+//   }
+// }
 
 
 
@@ -32,8 +28,7 @@ function Player(name, time, money, energy, distanceTravelled = 0){
   playerArray.push(this);
 }
 
-
-function Option(name, time, money, energy, distance) {
+function Option (name, time, money, energy, distance) {
   this.name = name;
   this.time = time;
   this.money = money;
@@ -42,40 +37,42 @@ function Option(name, time, money, energy, distance) {
   optionArray.push(this);
 }
 
-var testOption1 = new Option('test', 5, 5, 5);
-var testOption2 = new Option('test2', 3,3,3);
-var testOption3 = new Option('test3', 1, 1, 1);
+// var testOption1 = new Option('test', 5, 5, 5, 0);
+// var testOption2 = new Option('test2', 3,3,3, 0);
+// var testOption3 = new Option('test3', 1, 1, 1, 0);
 
 function optionClick(event) {
+  for (var i in playerArray.length){
 
-  var clickedOption = event.target.id;
+    var clickedOption = event.target.id;
 
-  if(clickedOption === 'option1') {
-    player.money -= 10;
-    player.distanceTravelled +=3;
-    console.log(player);
-  } else if
-  (clickedOption === 'option2') {
-    player.time-= 10;
-    player.distanceTravelled +=2;
-    console.log(player);
-  }
-  else if
-  (clickedOption === 'option3'){
-    player.energy -= 10;
-    player.distanceTravelled ++;
-    console.log(player);
-  }
-  if (player.distanceTravelled >= endPoint){
+    if(clickedOption === 'option1') {
+      Player[i-1].money -= 10;
+      Player[i].distanceTravelled +=3;
+      console.log('clicked 1');
+    } else if
+    (clickedOption === 'option2') {
+      Player[i].time-= 10;
+      Player[i].distanceTravelled +=2;
+      console.log('clicked 2');
+    }
+    else if
+    (clickedOption === 'option3'){
+      Player[i].energy -= 10;
+      Player[i].distanceTravelled ++;
+      console.log('clicked 3');
+    }
+    if (Player[i].distanceTravelled >= endPoint){
     //this is where the game ends
-    optionsElement.removeEventListener('click', optionClick);
-    console.log('game won');
+      optionsElement.removeEventListener('click', optionClick);
+      console.log('game won');
+    }
+    else if ((Player[i].money <= 0) || (Player[i].energy <= 0) || (Player[i].time <= 0)){
+      optionsElement.removeEventListener('click', optionClick);
+      console.log('game lost');
+    }
+    localStorage.setItem('playerArray', JSON.stringify(playerArray));
   }
-  else if ((player.money <= 0) || (player.energy <= 0) || (player.time <= 0)){
-    optionsElement.removeEventListener('click', optionClick);
-    console.log('game lost');
-  }
-  localStorage.setItem('playerArray', JSON.stringify(playerArray));
 }
 
 
@@ -83,7 +80,7 @@ function optionClick(event) {
 
 optionsElement.addEventListener('click', optionClick);
 
-checkName();
+// checkName();
 
 
 
