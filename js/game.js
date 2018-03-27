@@ -2,6 +2,8 @@
 
 // TODO : finish and work on game.js
 
+
+// endPoint signifies beginning # user must get to 0 to win
 var endPoint = 20;
 
 //holding the various options
@@ -9,8 +11,10 @@ var optionArray = [];
 //holding the varius player
 var playerArray = [];
 
+// obtaining element from the dom
 var optionsElement = document.getElementById('options');
 
+// obtaining localstorage info for saving progress
 var progress = localStorage.getItem('playerArray');
 playerArray = JSON.parse(progress);
 
