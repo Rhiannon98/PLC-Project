@@ -16,6 +16,7 @@ var optionsElement = document.getElementById('options');
 
 // creating constructor function for new player instances
 function Player(name, time, money, energy, distanceTravelled = 0) {
+
   this.name = name;
   this.time = time;
   this.money = money;
@@ -27,6 +28,7 @@ function Player(name, time, money, energy, distanceTravelled = 0) {
 
 // to create new questions / options
 function Option(name, time, money, energy, distance) {
+
   this.name = name;
   this.time = time;
   this.money = money;
@@ -35,7 +37,7 @@ function Option(name, time, money, energy, distance) {
   optionArray.push(this);
 }
 
-// pull the userName from validateInput in app.js
+
 function getUser() {
   var newUser = localStorage.getItem('validateInput');
 
@@ -117,6 +119,7 @@ function optionClick(event) {
     optionsElement.removeEventListener('click', optionClick);
     console.log('game lost');
   }
+
 
 }
 
