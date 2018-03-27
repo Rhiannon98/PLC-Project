@@ -4,7 +4,7 @@
 
 // TODO: create current user variable to access later
 
-var endPoint = 20;
+var endPoint = 100;
 
 //holding the various options
 var optionArray = [];
@@ -58,18 +58,25 @@ Question.prototype.loadText = function () {
 
 // function to randomize questions from position[1]
 function getRandomQuest() {
-  var randomNum = Math.ceil(Math.random() * questionArray.length);
+  var randomNum = Math.ceil(Math.random() * (questionArray.length - 1));
   console.log(randomNum);
-  return questionArray[randomNum];
+  return questionArray.splice(randomNum, 1);
 }
 
 // creating instances
 var initialQuest = new Question('Choose an option!', 'energy', 0);
-var questTwo = new Question('Choose a different option?', 'ENERGY', 0);
-var questThree = new Question('Are you an idiot?', 'eNeRgY', 0);
+new Question('Choose a different option?', 'ENERGY', 0);
+new Question('Are you an idiot?', 'eNeRgY', 0);
+new Question('Are you a donkry?', 'eNeRgY', 0);
+new Question('Are you an ogre?', 'eNeRgY', 0);
+new Question('Are you an orc?', 'eNeRgY', 0);
+new Question('Are you a carrot?', 'eNeRgY', 0);
+new Question('Are you an elf?', 'eNeRgY', 0);
+
+
 
 // pull the userName from validateInput in app.js
-
+// confirm that this user is or is not the same
 function getUser() {
   var newUser = localStorage.getItem('validateInput');
 
@@ -79,12 +86,12 @@ function getUser() {
 
   var progress = localStorage.getItem('playerArray');
   if (progress === null) {
-    var newPlayer = new Player(newUser, 10, 10, 10);
+    var newPlayer = new Player(newUser, 100, 100, 100);
   } else {
     playerArray = JSON.parse(progress);
     var checkUser = checkName(newUser);
     if (checkUser === false) {
-      newPlayer = new Player(newUser, 10, 10, 10);
+      newPlayer = new Player(newUser, 100, 100, 100);
     }
   }
 }
@@ -153,7 +160,10 @@ function optionClick(event) {
     console.log('game lost');
     return;
   }
-  console.log(getRandomQuest());
+  var newQuestion = getRandomQuest()[0];
+  console.log(newQuestion);
+  newQuestion.loadText();
+  // console.log(getRandomQuest());
 }
 
 // making the event listener listen (lol)
