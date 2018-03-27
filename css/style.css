@@ -1,34 +1,55 @@
 html{
+
   height: 100%;
-  background: radial-gradient(#BDE393, #64952F, #426F10);
+  background: radial-gradient(rgb(226, 240, 194), rgb(198, 233, 160), rgb(164, 207, 114));
 }
 
 body {
-  margin: 2em;
-}
 
-header ul li{
+  width: 80%;
+  margin: auto;
+  margin-top: 20px;
+}
+header{
+  text-align: center;
+}
+ul{
+  text-align: center;
+}
+ul li{
+
   display: inline-block;
   text-decoration: none;
 }
 
 img {
+
+  background: repeating-radial-gradient(
+  circle,
+  #264900,
+  #8DBC5B 10px,
+  #426F10 10px, 
+  #d0f095 20px
+  );  
   display: block;
-  width: 400px;
   margin: auto;
+  border-radius: 15px 70px;
 }
 
 section .deck{
+
   text-align: center;
 }
 
 .deck {
+
   padding: .5em;
   border: 2px solid #21332E;
   margin: auto;
 }
 
 .card {
+
   display: table-cell;
   position: relative;
 }

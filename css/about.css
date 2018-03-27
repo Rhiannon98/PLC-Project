@@ -6,7 +6,7 @@
 body {
 
   height:100%;
-  background: radial-gradient(seashell, darkkhaki, seagreen, hotpink);
+  background: radial-gradient(seashell, darkkhaki, seagreen, darkgreen);
   margin: 2em;
   
 }
@@ -14,8 +14,7 @@ body {
 header {
 
   padding: 3em;
-  background: burlywood;
-
+  overflow: hidden;
   
 }
 
@@ -25,7 +24,7 @@ header nav ul{
   margin: 0;
   float: right;
   clear: right;
-  
+  overflow: hidden;
 
 }
 
@@ -35,9 +34,11 @@ header nav ul li {
   padding-right: 3em;
   padding-left: 2em;
   line-height: 2em;
-  border: solid 2px black;
-
-  
+  border: solid 2px black;  
+}
+nav ul li:hover{
+  background-color: gray;
+  color: white;
 }
 
 .cardsection {
@@ -51,6 +52,11 @@ header nav ul li {
   border: solid 5px black;
   display: inline-block;
   margin: 2em;
+  border-radius: 25px;
+  overflow:hidden;
+}
+.card img{
+  border-radius: 50%;
 }
 
 section div header {
