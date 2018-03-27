@@ -10,6 +10,8 @@ var endPoint = 20;
 var optionArray = [];
 //holding the varius player
 var playerArray = [];
+//holding our questions
+var questionArray = [];
 
 // getting the elements from the dom
 var optionsElement = document.getElementById('options');
@@ -38,7 +40,6 @@ function Option(name, time, money, energy, distance) {
   optionArray.push(this);
 }
 
-<<<<<<< HEAD
 // create question constructor
 function Question(Qtext, type, amount) {
   // what the question is
@@ -47,19 +48,23 @@ function Question(Qtext, type, amount) {
   this.resource = type;
   // amount is the number taken from that resource
   this.amount = amount;
+  // pushing shit into the array
+  questionArray.push(this);
 }
 // add method to question to load question on page
 Question.prototype.loadText = function () {
   questionText.textContent = this.text;
 };
 
+// function to randomize questions from position[1]
+
+
 // creating instances
 var initialQuest = new Question('Choose an option!', 'energy', 0);
+var questTwo = new Question('Choose a different option?', 'ENERGY', 0);
 
 // pull the userName from validateInput in app.js
-=======
 
->>>>>>> dd46a57b2e2eb00215092536fe2b0fc8192e61c2
 function getUser() {
   var newUser = localStorage.getItem('validateInput');
 
