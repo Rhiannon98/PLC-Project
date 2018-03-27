@@ -1,5 +1,7 @@
 'use strict';
 
+// TODO: get this working ... better
+
 // TODO: create current user variable to access later
 
 var endPoint = 20;
