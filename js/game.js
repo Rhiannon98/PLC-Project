@@ -65,13 +65,13 @@ function getRandomQuest() {
 
 // creating instances
 var initialQuest = new Question('Choose an option!', 'energy', 0);
-new Question('Choose a different option?', 'ENERGY', 0);
-new Question('Are you an idiot?', 'eNeRgY', 0);
-new Question('Are you a donkry?', 'eNeRgY', 0);
-new Question('Are you an ogre?', 'eNeRgY', 0);
-new Question('Are you an orc?', 'eNeRgY', 0);
-new Question('Are you a carrot?', 'eNeRgY', 0);
-new Question('Are you an elf?', 'eNeRgY', 0);
+new Question('Choose a different option?', 'energy', 6);
+new Question('Are you an idiot?', 'energy', -70);
+new Question('Are you a donkry?', 'money', 10);
+new Question('Are you an ogre?', 'time', 50);
+new Question('Are you an orc?', 'energy', 1);
+new Question('Are you a carrot?', 'time', 10);
+new Question('Are you an elf?', 'money', -5);
 
 
 
@@ -127,26 +127,46 @@ function optionClick(event) {
   // button user clicked on
   var clickedOption = event.target.id;
 
+  // saving
+  var newQuestion = getRandomQuest()[0];
+  // checking
+  console.log(newQuestion.amount);
+  // loading the text onto the page
+  newQuestion.loadText();
+  // TODO: fix this
+  // FIXME : not computing differences
+  if (newQuestion.resource === 'energy') {
+    currentPlayer.energy -= newQuestion.amount;
+    console.log('i am energy');
+
+  } else if (newQuestion.resource === 'time') {
+    currentPlayer.time -= newQuestion.amount;
+    console.log('i am time');
+
+  } else if (newQuestion.resource === 'money') {
+    currentPlayer.money -= newQuestion.amount;
+    console.log('i am money');
+  }
   // change the players resources based on the option that they clicked on
   if (clickedOption === 'option1') {
-    currentPlayer.money -= 5;
+    // currentPlayer.money -= 5;
     currentPlayer.distanceTravelled += 3;
     console.log(currentPlayer);
   } else if
   (clickedOption === 'option2') {
-    currentPlayer.time -= 5;
+    // currentPlayer.time -= 5;
     currentPlayer.distanceTravelled += 2;
     console.log(currentPlayer);
   }
   else if
   (clickedOption === 'option3') {
-    currentPlayer.energy -= 5;
+    // currentPlayer.energy -= 5;
     currentPlayer.distanceTravelled++;
     console.log(currentPlayer);
   }
-  else if (clickedOption === 'saveProgress') {
-    saveProgress();
-  }
+  // saving progress as the player goes
+  saveProgress();
+
   // if user at end, they win
   if (currentPlayer.distanceTravelled >= endPoint) {
     //this is where the game ends
@@ -160,10 +180,7 @@ function optionClick(event) {
     console.log('game lost');
     return;
   }
-  var newQuestion = getRandomQuest()[0];
-  console.log(newQuestion);
-  newQuestion.loadText();
-  // console.log(getRandomQuest());
+
 }
 
 // making the event listener listen (lol)
