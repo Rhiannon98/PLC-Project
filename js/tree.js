@@ -5,7 +5,7 @@ function Tree(head = null){
 }
 //This function will search the Tree for the Parent, then add a node to its links. If the parent is not in the tree, it does nothing
 function findNode(targetName, start){
-  //if this is the right parent, give it a new link
+  //if this is the right node, return it
   if (start.name === targetName){
     return start;
   }
@@ -24,7 +24,8 @@ function findNode(targetName, start){
     }
     return false;
   }
-}
+} 
+//This function will find a target Node by its name, and then add a new Node to its links.
 function addNode(node, targetName, start){
   var targetNode = findNode(targetName, start);
   if (targetNode !== false){
@@ -36,7 +37,6 @@ function addNode(node, targetName, start){
   }
 }
 
-
 //Data will be whatever object the node is storing and links is an array of Nodes this can vist
 function Node( name, links = []){
   // this.data = data;
@@ -44,6 +44,6 @@ function Node( name, links = []){
   this.links = links;
 }
 
-var startNode = new Node('start')
+var startNode = new Node('start');
 var tree = new Tree(startNode);
 
