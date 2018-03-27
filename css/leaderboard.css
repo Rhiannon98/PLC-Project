@@ -1,0 +1,27 @@
+
+html {
+
+  height: 100%;
+  background: radial-gradient(rgb(226, 240, 194), rgb(198, 233, 160), rgb(164, 207, 114));
+  animation: mymove 5s infinite;
+}
+
+@keyframes mymove {
+  50% {background: radial-gradient(rgb(240, 199, 194), rgb(233, 160, 160), rgb(207, 114, 114));
+  }
+
+
+header {
+
+  /* background: snow; */
+}
+
+h1 {
+
+  text-align: center;
+  text-decoration-style: double;
+  font-size: 4em;
+  color: blueviolet;
+  
+}
+
