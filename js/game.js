@@ -4,15 +4,18 @@
 
 // TODO: create current user variable to access later
 
-var endPoint = 20;
+var endPoint = 100;
 
 //holding the various options
 var optionArray = [];
 //holding the varius player
 var playerArray = [];
+//holding our questions
+var questionArray = [];
 
-// getting the element from the dom
+// getting the elements from the dom
 var optionsElement = document.getElementById('options');
+var questionText = document.getElementById('questionText');
 
 // creating constructor function for new player instances
 function Player(name, time, money, energy, distanceTravelled = 0) {
@@ -37,7 +40,43 @@ function Option(name, time, money, energy, distance) {
   optionArray.push(this);
 }
 
+// create question constructor
+function Question(Qtext, type, amount) {
+  // what the question is
+  this.text = Qtext;
+  // type is a resource as a string
+  this.resource = type;
+  // amount is the number taken from that resource
+  this.amount = amount;
+  // pushing shit into the array
+  questionArray.push(this);
+}
+// add method to question to load question on page
+Question.prototype.loadText = function () {
+  questionText.textContent = this.text;
+};
 
+// function to randomize questions from position[1]
+function getRandomQuest() {
+  var randomNum = Math.ceil(Math.random() * (questionArray.length - 1));
+  console.log(randomNum);
+  return questionArray.splice(randomNum, 1);
+}
+
+// creating instances
+var initialQuest = new Question('Choose an option!', 'energy', 0);
+new Question('Choose a different option?', 'ENERGY', 0);
+new Question('Are you an idiot?', 'eNeRgY', 0);
+new Question('Are you a donkry?', 'eNeRgY', 0);
+new Question('Are you an ogre?', 'eNeRgY', 0);
+new Question('Are you an orc?', 'eNeRgY', 0);
+new Question('Are you a carrot?', 'eNeRgY', 0);
+new Question('Are you an elf?', 'eNeRgY', 0);
+
+
+
+// pull the userName from validateInput in app.js
+// confirm that this user is or is not the same
 function getUser() {
   var newUser = localStorage.getItem('validateInput');
 
@@ -47,12 +86,12 @@ function getUser() {
 
   var progress = localStorage.getItem('playerArray');
   if (progress === null) {
-    var newPlayer = new Player(newUser, 10, 10, 10);
+    var newPlayer = new Player(newUser, 100, 100, 100);
   } else {
     playerArray = JSON.parse(progress);
     var checkUser = checkName(newUser);
     if (checkUser === false) {
-      newPlayer = new Player(newUser, 10, 10, 10);
+      newPlayer = new Player(newUser, 100, 100, 100);
     }
   }
 }
@@ -113,22 +152,31 @@ function optionClick(event) {
     //this is where the game ends
     optionsElement.removeEventListener('click', optionClick);
     console.log('game won');
+    return;
   }
   // if player has 0 of any resource = LOSER
   else if ((currentPlayer.money <= 0) || (currentPlayer.energy <= 0) || (currentPlayer.time <= 0)) {
     optionsElement.removeEventListener('click', optionClick);
     console.log('game lost');
+    return;
   }
-
-
+  var newQuestion = getRandomQuest()[0];
+  console.log(newQuestion);
+  newQuestion.loadText();
+  // console.log(getRandomQuest());
 }
 
-
+// making the event listener listen (lol)
 optionsElement.addEventListener('click', optionClick);
 
+// calling the function if the user stored in LS
 getUser();
+
+// checks the player on page load
 var currentPlayer = playerArray[playerArray.findIndex(findPlayer)];
 
+// calling the first Question function
+initialQuest.loadText();
 
 
 
