@@ -1,0 +1,27 @@
+
+html body {
+
+  height: 100%;
+
+
+}
+
+header {
+
+  /* background: snow; */
+}
+
+h1 {
+
+  text-align: center;
+  text-decoration-style: double;
+  font-size: 4em;
+  color: blueviolet;
+  
+}
+
+footer {
+
+  background: url('../whaaaaat.png') 100%;
+  
+}
