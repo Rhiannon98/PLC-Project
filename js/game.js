@@ -2,10 +2,8 @@
 
 // TODO: get this working ... better
 
-// TODO: create current user variable to access later
 
-
-var endPoint = 100;
+var endPoint = 99;
 
 
 //holding the various options
@@ -17,7 +15,6 @@ var questionArray = [];
 
 
 // getting the elements from the dom
-
 var optionsElement = document.getElementById('options');
 var questionText = document.getElementById('questionText');
 
@@ -33,7 +30,7 @@ function Player(name, time, money, energy, distanceTravelled = 0) {
 }
 
 
-// to create new questions / options
+// to create new options
 function Option(name, time, money, energy, distance) {
 
   this.name = name;
@@ -53,7 +50,7 @@ function Question(Qtext, type, amount) {
   this.resource = type;
   // amount is the number taken from that resource
   this.amount = amount;
-  // pushing shit into the array
+  // pushing stuff into the array
   questionArray.push(this);
 }
 // add method to question to load question on page
@@ -61,15 +58,19 @@ Question.prototype.loadText = function () {
   questionText.textContent = this.text;
 };
 
-// function to randomize questions from position[1]
-function getRandomQuest() {
+// function to randomize questions from position[1+]
+function getRandomQuestion() {
   var randomNum = Math.ceil(Math.random() * (questionArray.length - 1));
-  console.log(randomNum);
-  return questionArray.splice(randomNum, 1);
+  console.log('This is the index of the random question chosen ' + randomNum);
+  //removes and returns the chosen question based on the index
+  //returns a one element array from our question array
+  //splice prevents repeated questions by removing it from the array
+  return questionArray.splice(randomNum, 1)[0];
 }
 
-// creating instances
-var initialQuest = new Question('Choose an option!', 'energy', 0);
+// creating initial question
+var initialQuestion = new Question('Choose an option!', 'energy', 0);
+//creating questions
 new Question('Choose a different option?', 'energy', 6);
 new Question('Are you an idiot?', 'energy', -70);
 new Question('Are you a donkry?', 'money', 10);
@@ -81,7 +82,7 @@ new Question('Are you an elf?', 'money', -5);
 
 
 // pull the userName from validateInput in app.js
-// confirm that this user is or is not the same
+// confirm that this user is or is not the same as one in the playerArray
 
 function getUser() {
   var newUser = localStorage.getItem('validateInput');
@@ -92,27 +93,29 @@ function getUser() {
 
   var progress = localStorage.getItem('playerArray');
   if (progress === null) {
-
-    var newPlayer = new Player(newUser, 100, 100, 100);
+    //if playerArray DNE, make user
+    new Player(newUser, 100, 100, 100);
 
   } else {
     playerArray = JSON.parse(progress);
     var checkUser = checkName(newUser);
     if (checkUser === false) {
-      newPlayer = new Player(newUser, 100, 100, 100);
-
+      //if player DNE, make player
+      new Player(newUser, 100, 100, 100);
     }
   }
 }
 
 // to go through local storage to see if name is a previous player
 function checkName(playerName) {
-  for (var n in playerArray) {
-    if (playerName === n.name) {
-      var player = n;
-      return player;
+  for (var i in playerArray) {
+    if (playerName === i.name) {
+      //I is the current player
+      console.log('I is: ' + i);
+      return i;
     }
   }
+  //returns false if the current player DNE
   return false;
 }
 
@@ -121,11 +124,11 @@ function saveProgress() {
   // storing player array in local storage.
   localStorage.setItem('playerArray', JSON.stringify(playerArray));
 }
-
+//This will be passed to an array that will use it to find the playerName that was entered in localStorage
 function findPlayer(element) {
   return element.name === JSON.parse(localStorage.getItem('validateInput'));
 }
-
+// TODO: STRETCH Use options instead of hardcoded values you apes
 // var testOption1 = new Option('test', 5, 5, 5);
 // var testOption2 = new Option('test2', 3, 3, 3);
 // var testOption3 = new Option('test3', 1, 1, 1);
@@ -135,64 +138,73 @@ function optionClick(event) {
 
   // button user clicked on
   var clickedOption = event.target.id;
-
-  // saving
-  var newQuestion = getRandomQuest()[0];
+  //get the first 6 letters of the id to see if they equal option
+  var testOption = clickedOption.slice(0,6);
+  // console.log(clickedOption);
+  //only run code if the user clicks on a button
+  console.log(testOption);
+  if (testOption !== 'option') {
+    console.log('leaving');
+    return;
+  }
+  // gets a new random question
   // checking
-  console.log(newQuestion.amount);
+  // console.log(newQuestion.amount);
   // loading the text onto the page
+  var newQuestion = getRandomQuestion();
+
   newQuestion.loadText();
-  // TODO: fix this
-  // FIXME : not computing differences
+  //computing differences in fantastic if else blocks
   if (newQuestion.resource === 'energy') {
     currentPlayer.energy -= newQuestion.amount;
-    console.log('i am energy');
+    // console.log('i am energy');
 
   } else if (newQuestion.resource === 'time') {
     currentPlayer.time -= newQuestion.amount;
-    console.log('i am time');
+    // console.log('i am time');
 
   } else if (newQuestion.resource === 'money') {
     currentPlayer.money -= newQuestion.amount;
-    console.log('i am money');
+    // console.log('i am money');
   }
   // change the players resources based on the option that they clicked on
   if (clickedOption === 'option1') {
     // currentPlayer.money -= 5;
 
     currentPlayer.distanceTravelled += 3;
-    console.log(currentPlayer);
+    // console.log(currentPlayer);
   } else if
-  (clickedOption === 'option2') {
+    (clickedOption === 'option2') {
     // currentPlayer.time -= 5;
 
     currentPlayer.distanceTravelled += 2;
-    console.log(currentPlayer);
+    // console.log(currentPlayer);
   }
   else if
-  (clickedOption === 'option3') {
+    (clickedOption === 'option3') {
     // currentPlayer.energy -= 5;
     currentPlayer.distanceTravelled++;
-    console.log(currentPlayer);
+    // console.log(currentPlayer);
   }
-  // saving progress as the player goes
+  // supposed saving progress as the player goes
   saveProgress();
 
   // if user at end, they win
+  //TODO: Move player to leaderboard when game is over
   if (currentPlayer.distanceTravelled >= endPoint) {
     //this is where the game ends
     optionsElement.removeEventListener('click', optionClick);
-    console.log('game won');
+    alert('YOU WIN');
     return;
   }
   // if player has 0 of any resource = LOSER
   else if ((currentPlayer.money <= 0) || (currentPlayer.energy <= 0) || (currentPlayer.time <= 0)) {
     optionsElement.removeEventListener('click', optionClick);
-    console.log('game lost');
+    alert('YOU S;UCK;');
     return;
   }
-
 }
+
 
 // making the event listener listen (lol)
 optionsElement.addEventListener('click', optionClick);
@@ -204,7 +216,7 @@ getUser();
 var currentPlayer = playerArray[playerArray.findIndex(findPlayer)];
 
 // calling the first Question function
-initialQuest.loadText();
+initialQuestion.loadText();
 
 
 

@@ -17,15 +17,13 @@ function validateInput(event) {
 
   } else {
 
-    alert('hello ' + userName + '!');
+    alert('Hello ' + userName + '!');
     localStorage.setItem('validateInput', JSON.stringify(userName));
 
     //loading game.html on click after user validation
 
     location.href = 'game.html';
   }
-
-  //proof of life
 
 }
 
