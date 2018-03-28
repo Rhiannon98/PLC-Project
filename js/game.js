@@ -139,10 +139,12 @@ function optionClick(event) {
   // button user clicked on
   var clickedOption = event.target.id;
   //get the first 6 letters of the id to see if they equal option
-  var testOption = clickedOption.slice(0,5);
+  var testOption = clickedOption.slice(0,6);
   // console.log(clickedOption);
   //only run code if the user clicks on a button
+  console.log(testOption);
   if (testOption !== 'option') {
+    console.log('leaving');
     return;
   }
   // gets a new random question
