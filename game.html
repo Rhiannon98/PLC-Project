@@ -8,17 +8,14 @@
 </head>
 
 <body>
-  <section class="deck">
+
     <header>
       <!-- TODO: put logo here -->
-      <img>
-    </header>
-  </section>
-  <section class="deck">
+      <img id= "logo" src="logo.png">
     <div>
-    <canvas id="map" width="300" height="300"></canvas>
+    <canvas id="map"></canvas>
     </div>
-  </section>
+  </header>
   <section>
     <div>
 
@@ -26,16 +23,14 @@
 
     </div>
   </section>
-  <section id="options" class="deck">
-    <div class="card">
+  <section class="deck">
       <ul id="resource-list">
-        <li id="energy">Energy</li>
-        <li id="money">Money</li>
-        <li id="time">Time</li>
+        <li class= "resource" id="energy">Energy</li>
+        <li class= "resource" id="money">Money</li>
+        <li class= "resource" id="time">Time</li>
       </ul>
-    </div>
-    <div class="card">
-      <ul>
+    <div id="options" class="card">
+      <ul id="button-list">
         <li>
           <button id="option1">Option 1</button>
         </li>
@@ -49,7 +44,6 @@
     </div>
   </section>
 
-  <section class="deck">
     <footer>
       <nav>
         <ul>
@@ -65,7 +59,7 @@
         </ul>
       </nav>
     </footer>
-  </section>
+
   <script src="js/game.js"></script>
 </body>
 
