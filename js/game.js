@@ -174,14 +174,14 @@ function optionClick(event) {
     currentPlayer.distanceTravelled += 3;
     // console.log(currentPlayer);
   } else if
-    (clickedOption === 'option2') {
+  (clickedOption === 'option2') {
     // currentPlayer.time -= 5;
 
     currentPlayer.distanceTravelled += 2;
     // console.log(currentPlayer);
   }
   else if
-    (clickedOption === 'option3') {
+  (clickedOption === 'option3') {
     // currentPlayer.energy -= 5;
     currentPlayer.distanceTravelled++;
     // console.log(currentPlayer);
