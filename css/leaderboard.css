@@ -7,8 +7,9 @@ html {
 }
 
 @keyframes mymove {
-  50% {background: radial-gradient(rgb(240, 199, 194), rgb(233, 160, 160), rgb(207, 114, 114));
+   50%{background: radial-gradient(rgb(240, 199, 194), rgb(233, 160, 160), rgb(207, 114, 114));
   }
+}
 
 
 header {
