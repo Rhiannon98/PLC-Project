@@ -13,7 +13,6 @@ var playerArray = [];
 //holding our questions
 var questionArray = [];
 
-
 // getting the elements from the dom
 var optionsElement = document.getElementById('options');
 var questionText = document.getElementById('questionText');
@@ -236,7 +235,7 @@ function optionClick(event) {
   else if
   (clickedOption === 'option3') {
     // currentPlayer.energy -= 5;
-    currentPlayer.distanceTravelled++;
+    currentPlayer.distanceTravelled+=100;
     // console.log(currentPlayer);
   }
   // supposed saving progress as the player goes
@@ -248,6 +247,9 @@ function optionClick(event) {
     //this is where the game ends
     optionsElement.removeEventListener('click', optionClick);
     alert('YOU WIN');
+    currentPlayer.finalScore = (currentPlayer.energy + currentPlayer.time + currentPlayer.money);
+    localStorage.setItem('currentPlayer', JSON.stringify(currentPlayer));
+    console.log(currentPlayer.finalScore);
     return;
   }
   // if player has 0 of any resource = LOSER
