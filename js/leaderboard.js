@@ -1,11 +1,19 @@
 'use strict';
 
+var leaders = [];
+//this gets the current player out of local storage
 var currentPlayer = JSON.parse(localStorage.getItem('currentPlayer'));
 //get list element from DOM
 var leaderList = document.getElementById('leaders');
+leaderList.textContent = ('Here are the best players');
 console.log('currentplayer', currentPlayer);
-// leaderList.textContent((currentPlayer.name + (currentPlayer.finalScore = currentPlayer.energy + currentPlayer.time + currentPlayer.money)));
-// console.log(currentPlayer.finalScore);
+
+//TODO: we nwwd to make it create it's own <li>
+var topPlayers = document.createElement('li');
+topPlayers.textContent = ((currentPlayer.name + ' ' + (currentPlayer.finalScore = currentPlayer.energy + currentPlayer.time + currentPlayer.money)));
+leaderList.appendChild(topPlayers);
+leaders.push(topPlayers);
+console.log(leaders);
 
 // TODO: load playerArray from local storage
 var playerArray = [];
