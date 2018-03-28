@@ -12,9 +12,6 @@ var optionArray = [];
 var playerArray = [];
 //holding our questions
 var questionArray = [];
-//final score counter for leaderboard
-var finalScore = 0;
-
 
 // getting the elements from the dom
 var optionsElement = document.getElementById('options');
@@ -28,7 +25,6 @@ function Player(name, time, money, energy, distanceTravelled = 0) {
   this.money = money;
   this.energy = energy;
   this.distanceTravelled = distanceTravelled;
-  this.finalScore = finalScore;
   playerArray.push(this);
 }
 
