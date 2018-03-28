@@ -3,7 +3,7 @@
 #####  Palette URL: http://paletton.com/#uid=52x0u0klXkJbcvugAq5rffrxza9
 
 
-*** Primary color:
+*** Primary color(GREENISH KINDA):
 
    shade 0 = #64952F = rgb(100,149, 47) = rgba(100,149, 47,1) = rgb0(0.392,0.584,0.184)
    shade 1 = #BDE393 = rgb(189,227,147) = rgba(189,227,147,1) = rgb0(0.741,0.89,0.576)
