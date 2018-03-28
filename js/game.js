@@ -17,6 +17,10 @@ var questionArray = [];
 // getting the elements from the dom
 var optionsElement = document.getElementById('options');
 var questionText = document.getElementById('questionText');
+var energyElement = document.getElementById('energy');
+var moneyElement = document.getElementById('money');
+var timeElement = document.getElementById('time');
+var canvasElement = document.getElementById('map');
 
 // creating constructor function for new player instances
 function Player(name, time, money, energy, distanceTravelled = 0) {
@@ -133,6 +137,21 @@ function findPlayer(element) {
 // var testOption2 = new Option('test2', 3, 3, 3);
 // var testOption3 = new Option('test3', 1, 1, 1);
 
+//Renders the resource bar and map and progress bar
+function render(){
+  renderResources();
+}
+function renderResources(){
+  energyElement.textContent = 'Energy: ' + currentPlayer.energy;
+  moneyElement.textContent = 'Money: ' + currentPlayer.money;
+  timeElement.textContent = 'Time: ' + currentPlayer.time;
+}
+//TODO: Write renderMap
+// function renderMap(){
+
+// }
+//TODO: write renderProgressBar
+
 // creating click event function
 function optionClick(event) {
 
@@ -203,6 +222,7 @@ function optionClick(event) {
     alert('YOU S;UCK;');
     return;
   }
+  render();
 }
 
 
@@ -217,6 +237,7 @@ var currentPlayer = playerArray[playerArray.findIndex(findPlayer)];
 
 // calling the first Question function
 initialQuestion.loadText();
+render();
 
 
 
