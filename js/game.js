@@ -186,7 +186,7 @@ function optionClick(event) {
   else if
   (clickedOption === 'option3') {
     // currentPlayer.energy -= 5;
-    currentPlayer.distanceTravelled++;
+    currentPlayer.distanceTravelled+=100;
     // console.log(currentPlayer);
   }
   // supposed saving progress as the player goes
@@ -199,6 +199,7 @@ function optionClick(event) {
     optionsElement.removeEventListener('click', optionClick);
     alert('YOU WIN');
     currentPlayer.finalScore = (currentPlayer.energy + currentPlayer.time + currentPlayer.money);
+    localStorage.setItem('currentPlayer', JSON.stringify(currentPlayer));
     console.log(currentPlayer.finalScore);
     return;
   }
