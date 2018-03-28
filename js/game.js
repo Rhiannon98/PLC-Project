@@ -12,6 +12,8 @@ var optionArray = [];
 var playerArray = [];
 //holding our questions
 var questionArray = [];
+//final score counter for leaderboard
+var finalScore = 0;
 
 
 // getting the elements from the dom
@@ -26,6 +28,7 @@ function Player(name, time, money, energy, distanceTravelled = 0) {
   this.money = money;
   this.energy = energy;
   this.distanceTravelled = distanceTravelled;
+  this.finalScore = finalScore;
   playerArray.push(this);
 }
 
@@ -174,14 +177,14 @@ function optionClick(event) {
     currentPlayer.distanceTravelled += 3;
     // console.log(currentPlayer);
   } else if
-    (clickedOption === 'option2') {
+  (clickedOption === 'option2') {
     // currentPlayer.time -= 5;
 
     currentPlayer.distanceTravelled += 2;
     // console.log(currentPlayer);
   }
   else if
-    (clickedOption === 'option3') {
+  (clickedOption === 'option3') {
     // currentPlayer.energy -= 5;
     currentPlayer.distanceTravelled++;
     // console.log(currentPlayer);
@@ -195,6 +198,8 @@ function optionClick(event) {
     //this is where the game ends
     optionsElement.removeEventListener('click', optionClick);
     alert('YOU WIN');
+    currentPlayer.finalScore = (currentPlayer.energy + currentPlayer.time + currentPlayer.money);
+    console.log(currentPlayer.finalScore);
     return;
   }
   // if player has 0 of any resource = LOSER

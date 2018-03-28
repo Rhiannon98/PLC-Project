@@ -1,6 +1,8 @@
 'use strict';
 //get list element from DOM
 var leaderList = document.getElementById('leaders');
+leaderList.textContent((currentPlayer.name + (currentPlayer.finalScore = currentPlayer.energy + currentPlayer.time + currentPlayer.money)));
+console.log(currentPlayer.finalScore);
 
 // TODO: load playerArray from local storage
 var playerArray = [];
