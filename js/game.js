@@ -156,7 +156,7 @@ function renderProgressBar(){
   if (canvasElement.getContext){
     console.log('Im here');
     var context = canvasElement.getContext('2d');
-    var travelledAmount = currentPlayer.distanceTravelled/endPoint*300;
+    var travelledAmount = currentPlayer.distanceTravelled/endPoint*canvasElement.width;
     var color = '#000000';
     console.log(context);
 
@@ -174,10 +174,10 @@ function renderProgressBar(){
     }
 
     context.fillStyle = color;
-    context.fillRect(0, 270, travelledAmount, 30);
+    context.fillRect(0, canvasElement.height-30, travelledAmount, 30);
 
     context.fillStyle = '#000000';
-    context.strokeRect(0, 270, 300, 30);
+    context.strokeRect(0, canvasElement.height-30, canvasElement.width, 30);
 
   }
   else {
