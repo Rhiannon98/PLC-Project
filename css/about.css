@@ -24,15 +24,13 @@ header img{
 }
 
 header nav ul{
-
   list-style-type: none;
   margin-top: ;
   float: right;
-  overflow: hidden;
   width: auto;
   clear: left;
   margin-bottom: 0;
-  margin-right: 5em;
+  margin-right: 2em;
   
 }
 
@@ -70,7 +68,7 @@ nav ul li:hover{
 .card img{
   border-radius: 50%;
   width:100%;
-  margin: -.75em;
+  padding: .25em;
 }
 
 section div header {
