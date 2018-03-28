@@ -1,7 +1,7 @@
 'use strict';
 
-
-var 
+//to store the leaders not obverwrite
+var leaderArray = [];
 //this gets the current player out of local storage
 var currentPlayer = JSON.parse(localStorage.getItem('currentPlayer'));
 //
@@ -11,11 +11,22 @@ var leaderList = document.getElementById('leaders');
 leaderList.textContent = ('Here are the best players');
 console.log('currentplayer', currentPlayer);
 
-//TODO: we nwwd to make it create it's own <li>
+//creates it's own <li>
 var topPlayers = document.createElement('li');
 topPlayers.textContent = (currentPlayer.name + ' ' + finalScore);
 leaderList.appendChild(topPlayers);
 //pushes top players into leaders array to be stored and displayed on the board
+
+function LeaderBoard(name, score) {
+  this.name = name;
+  this.score = score;
+  leaderArray.push(this);
+}
+
+console.log(leaderArray);
+
+new LeaderBoard(currentPlayer.name, finalScore);
+
 
 //function to sort through the playerArray by points for leaderboard
 function compareInArray( a, b ){
