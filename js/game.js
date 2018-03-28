@@ -17,6 +17,10 @@ var questionArray = [];
 // getting the elements from the dom
 var optionsElement = document.getElementById('options');
 var questionText = document.getElementById('questionText');
+var energyElement = document.getElementById('energy');
+var moneyElement = document.getElementById('money');
+var timeElement = document.getElementById('time');
+var canvasElement = document.getElementById('map');
 
 // creating constructor function for new player instances
 function Player(name, time, money, energy, distanceTravelled = 0) {
@@ -133,6 +137,55 @@ function findPlayer(element) {
 // var testOption2 = new Option('test2', 3, 3, 3);
 // var testOption3 = new Option('test3', 1, 1, 1);
 
+//Renders the resource bar and map and progress bar
+function render(){
+  renderResources();
+  renderProgressBar();
+}
+function renderResources(){
+  energyElement.textContent = 'Energy: ' + currentPlayer.energy;
+  moneyElement.textContent = 'Money: ' + currentPlayer.money;
+  timeElement.textContent = 'Time: ' + currentPlayer.time;
+}
+//TODO: Write renderMap
+// function renderMap(){
+
+// }
+//TODO: write renderProgressBar
+function renderProgressBar(){
+  if (canvasElement.getContext){
+    console.log('Im here');
+    var context = canvasElement.getContext('2d');
+    var travelledAmount = currentPlayer.distanceTravelled/endPoint*canvasElement.width;
+    var color = '#000000';
+    console.log(context);
+
+    if (currentPlayer.distanceTravelled/endPoint < 0.25){
+      color = '#ff0000';
+    }
+    else if (currentPlayer.distanceTravelled/endPoint < 0.5) {
+      color = '#ff6200';
+    }
+    else if (currentPlayer.distanceTravelled/endPoint < 0.75) {
+      color = '#00ff00';
+    }
+    else {
+      color = '#0000ff';
+    }
+
+    context.fillStyle = color;
+    context.fillRect(0, canvasElement.height-30, travelledAmount, 30);
+
+    context.fillStyle = '#000000';
+    context.strokeRect(0, canvasElement.height-30, canvasElement.width, 30);
+
+  }
+  else {
+    console.log('error');
+  }
+
+}
+
 // creating click event function
 function optionClick(event) {
 
@@ -174,14 +227,14 @@ function optionClick(event) {
     currentPlayer.distanceTravelled += 3;
     // console.log(currentPlayer);
   } else if
-    (clickedOption === 'option2') {
+  (clickedOption === 'option2') {
     // currentPlayer.time -= 5;
 
     currentPlayer.distanceTravelled += 2;
     // console.log(currentPlayer);
   }
   else if
-    (clickedOption === 'option3') {
+  (clickedOption === 'option3') {
     // currentPlayer.energy -= 5;
     currentPlayer.distanceTravelled++;
     // console.log(currentPlayer);
@@ -203,6 +256,7 @@ function optionClick(event) {
     alert('YOU S;UCK;');
     return;
   }
+  render();
 }
 
 
@@ -217,6 +271,7 @@ var currentPlayer = playerArray[playerArray.findIndex(findPlayer)];
 
 // calling the first Question function
 initialQuestion.loadText();
+render();
 
 
 
