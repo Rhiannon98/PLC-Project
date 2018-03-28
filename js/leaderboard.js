@@ -1,11 +1,11 @@
 'use strict';
 
-//TODO: store the leaders not obverwrite
+//store the leaders with no overwrite
 var leaderArray = [];
 //this gets the current player out of local storage
 var currentPlayer = JSON.parse(localStorage.getItem('currentPlayer'));
 var playersArray = JSON.parse(localStorage.getItem('playerArray'));
-//
+
 var finalScore = currentPlayer.energy + currentPlayer.time + currentPlayer.money;
 //get list element from DOM
 var topPlayers = document.getElementById('leaders');
@@ -23,7 +23,6 @@ console.log(leaderArray);
 
 // new LeaderBoard(currentPlayer.name, finalScore);
 
-
 //function to sort through the playerArray by points for leaderboard
 function compareInArray(a, b) {
   // sorts the scores in descending order
@@ -33,11 +32,15 @@ function compareInArray(a, b) {
 leaderArray.sort(compareInArray);
 
 //TODO: display sorted list on DOM
-function displayLeaderboard() {
 
+// displays the leader board on the page after going through the array
+function displayLeaderboard() {
+  // going through the length of playersArray (playerArray)
   for (var i in playersArray) {
+    // getting the element from the playersArray!
     new LeaderBoard(playersArray[i].name, finalScore);
   }
+
 }
 
 displayLeaderboard();
