@@ -31,7 +31,6 @@ ul li{
   max-height: 200px;
 }
 #resource-list {
-  display: inline-block;
   max-width: 25%;
   border: 2px solid black;
   padding-left: 2em;
@@ -98,9 +97,9 @@ footer {
 #index-logo {
   width: 70%;
 }
-#index-header {
+/* #index-header {
 
-}
+} */
 #index-nav {
   text-align: right;
   overflow: hidden;
