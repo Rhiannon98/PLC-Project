@@ -140,6 +140,7 @@ function findPlayer(element) {
 //Renders the resource bar and map and progress bar
 function render(){
   renderResources();
+  renderProgressBar();
 }
 function renderResources(){
   energyElement.textContent = 'Energy: ' + currentPlayer.energy;
@@ -151,6 +152,39 @@ function renderResources(){
 
 // }
 //TODO: write renderProgressBar
+function renderProgressBar(){
+  if (canvasElement.getContext){
+    console.log('Im here');
+    var context = canvasElement.getContext('2d');
+    var travelledAmount = currentPlayer.distanceTravelled/endPoint*300;
+    var color = '#000000';
+    console.log(context);
+
+    if (currentPlayer.distanceTravelled/endPoint < 0.25){
+      color = '#ff0000';
+    }
+    else if (currentPlayer.distanceTravelled/endPoint < 0.5) {
+      color = '#ff6200';
+    }
+    else if (currentPlayer.distanceTravelled/endPoint < 0.75) {
+      color = '#00ff00';
+    }
+    else {
+      color = '#0000ff';
+    }
+
+    context.fillStyle = color;
+    context.fillRect(0, 270, travelledAmount, 30);
+
+    context.fillStyle = '#000000';
+    context.strokeRect(0, 270, 300, 30);
+
+  }
+  else {
+    console.log('error');
+  }
+
+}
 
 // creating click event function
 function optionClick(event) {
@@ -193,14 +227,14 @@ function optionClick(event) {
     currentPlayer.distanceTravelled += 3;
     // console.log(currentPlayer);
   } else if
-    (clickedOption === 'option2') {
+  (clickedOption === 'option2') {
     // currentPlayer.time -= 5;
 
     currentPlayer.distanceTravelled += 2;
     // console.log(currentPlayer);
   }
   else if
-    (clickedOption === 'option3') {
+  (clickedOption === 'option3') {
     // currentPlayer.energy -= 5;
     currentPlayer.distanceTravelled++;
     // console.log(currentPlayer);
