@@ -3,81 +3,79 @@
 function Graph(head = null){
   this.head = head;
 }
-//This function will search the Tree for the Parent, then add a node to its links. If the parent is not in the tree, it does nothing
-//visited is always empty and never given a value by the user, only the function
-function findNode(targetName, start, visited = []){
-  //if this is the right node, return it
-  if (start.name === targetName){
-    return start;
+
+function searchGraph(node, targetName){
+  var result = traverseGraphFor(node, targetName);
+  for (let i of nodeArray){
+    i.explored = false;
+    console.log(i);
   }
-  //If there are no more places to visit, return false
-  else if (start.links === []){
-    visited.push(start);
-    return false;
+  return result;
+}
+
+function traverseGraphFor(node, targetName){
+  node.explored = true;
+  if (node.name === targetName){
+    return node;
   }
-  //otherwise recursively search each link, stopping at the first successful find
-  else {
-    //if we've been here before, return false because we already know this is a dead end
-    for (let n in visited){
-      if (start === visited[n]){
-        return false;
-      }
-    }
-    visited.push(start);
-    for (let i in start.links){
-      //if i is null, remove it from the links
-      if (i === null){
-        start.links.splice(i, 1);
-      }
-      else {
-        var result = findNode(targetName, start.links[i]);
-        //if this branch has what we are looking for, return true
-        if (result !== false){
+  else if (Object.keys(node.edges).length > 0){
+    for (var n in node.edges){
+      if (node.edges.hasOwnProperty(n)){
+        if (!node.edges[n].explored){
+          var result = traverseGraphFor(node.edges[n], targetName);
+        }
+        else {
+          result = false;
+        }
+        if (result.name === targetName){
           return result;
         }
       }
     }
     return false;
   }
-} 
-//This function will find a target Node by its name, and then add a new Node to its links.
-function addNode(node, targetName, start){
-  var targetNode = findNode(targetName, start);
-  if (targetNode !== false){
-    targetNode.links.push(node);
-    return true;
-  }
   else {
     return false;
   }
 }
-//Links the linker to the linkee
-function linkNodes(linkername, linkeename, start){
-  var linker = findNode(linkername, start);
-  var linkee = findNode(linkeename, start);
-  if ((linker !== false) && ( linkee !== false)){
-    linker.links.push(linkee);
-    return true;
-  }
-  return false;
-}
-function removeNode(targetName, start){
-  var nodeToRemove = findNode(targetName, start);
-  if (nodeToRemove === false){
-    return false;
-  }
-  else {
-    nodeToRemove = null;
-  }
-}
+
 
 //Data will be whatever object the node is storing and links is an array of Nodes this can vist
-function Node( name, links = []){
+function Node( name, edge = {}){
   // this.data = data;
   this.name = name;
-  this.links = links;
+  if (edge.name){
+    this.edges[edge.name] = edge;
+  }
+  else {
+    this.edges = {};
+  }
+  this.explored = false;
 }
 
-var startNode = new Node('start');
-var graph = new Graph(startNode);
+// var graph = new Graph(startNode);
+var startNode = new Node('Your House');
+var endNode = new Node('CodeFellows');
+var nodeArray = [startNode, endNode];
 
+
+function generateRandomGraph(){
+  let randomAmount = Math.floor(Math.random() * 6) + 4;
+  console.log(randomAmount);
+  for (let i = 0; i < randomAmount; i++){
+    let newNode = new Node(i.toString());
+    nodeArray.push(newNode);
+  }
+  while (searchGraph(startNode, 'CodeFellows') === false){
+    for (let n = 0; n < nodeArray.length; n++){
+      let randomAmount = Math.ceil(Math.random() * 3);
+      for (let x = 0; x < randomAmount; x++){
+        let randomIndex = Math.floor(Math.random() * nodeArray.length);
+        if (randomIndex !== n){
+          nodeArray[n].edges[nodeArray[randomIndex].name] = nodeArray[randomIndex];
+          nodeArray[randomIndex].edges[nodeArray[n].name] = nodeArray[n];
+        }
+      }
+    }
+  }
+}
