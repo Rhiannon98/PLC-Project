@@ -1,27 +1,92 @@
 
 html {
 
-  height: 100%;
-  background: radial-gradient(rgb(226, 240, 194), rgb(198, 233, 160), rgb(164, 207, 114));
-  animation: mymove 5s infinite;
+  height: 100%;  
+  background-color: #BDCA62;
+  animation: mymove 7s infinite;
 }
 
 @keyframes mymove {
-  50% {background: radial-gradient(rgb(240, 199, 194), rgb(233, 160, 160), rgb(207, 114, 114));
+   50% {background-color: #E9F49F;
   }
-
-
-header {
-
-  /* background: snow; */
 }
+
+Body{
+
+  height: 100%;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+header img {
+
+  width: 300px;
+  margin: 50px 0px 20px 30px;
+  border: solid 2px black;
+  border-radius: 70px 10px;
+
+}
+
+
 
 h1 {
 
+  font-family: 'Faster One', cursive;
   text-align: center;
   text-decoration-style: double;
-  font-size: 4em;
-  color: blueviolet;
+  font-size: 5em;
+  color: rgb(175, 25, 57);
   
+}
+
+p {
+
+  font-family: 'Share', cursive;
+  font-size: 3em;
+  text-align: center;
+}
+
+ol {
+
+  position: relative;
+  width: 100%;
+  list-style-position: inside;
+  display: inline-block;
+  margin:  0px auto;
+  font-family: 'Share', cursive;
+  font-size: 2em;
+  text-align: center;
+  margin-top: 30px;
+  padding: 20px;
+
+}
+
+li {
+
+  padding: 20px;
+}
+
+footer {
+
+  position: absolute;
+  height: 50px;
+  bottom: 100px;
+  right: 180px;
+   
+}
+
+footer li {
+
+  display: inline-block;
+  text-decoration: none;
+  margin-bottom: 30px;
+
+}
+
+footer li a {
+
+  text-decoration: none;
+  font-size: 1.5em;
+  font-family: 'Faster One', cursive;
 }
 

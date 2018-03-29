@@ -4,45 +4,50 @@
 <head>
   <title>PLC Project Game Page</title>
   <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/background.css" />
   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-  <section class="deck">
-    <header>YOLO</header>
-  </section>
-  <section id="map" class="deck">
-    <div>THIS arR ouR MAP</div>
-    <!--  THIS IS FOR THE MAP -->
-  </section>
-  <section id="briefing">
+
+    <header>
+      <!-- TODO: put logo here -->
+      <img id= "logo" src="logo.png">
+    <div>
+    <canvas id="map"></canvas>
+    </div>
+  </header>
+  <section>
     <div>
 
       <p id="questionText"></p>
 
     </div>
-    <!-- This is for a description of this location -->
   </section>
-  <section id="options" class="deck">
-    <div>
-      <ul>
+  <section class="deck">
+      <ul id="resource-list">
+        <li class= "resource" id="energy">Energy</li>
+        <li class= "resource" id="money">Money</li>
+        <li class= "resource" id="time">Time</li>
+      </ul>
+    <div id="options" class="card">
+      <ul id="button-list">
         <li>
-          <button id="option1">Option 1</button>
+          <button id="option1">By Train</button>
+          <label for="option1">Money: -10, Energy: -2, Time: -3, Distance Traveled: 20</label>
         </li>
         <li>
-          <button id="option2">Option 2</button>
+          <button id="option2">By Bus</button>
+          <label for="option2">Money: -5, Energy: -2, Time: -7, Distance Traveled: 10</label>
         </li>
         <li>
-          <button id="option3">Option 3</button>
-        </li>
-        <li id="saveButton">
-          <button id="saveProgress">Save Progress?</button>
+          <button id="option3">By Foot</button>
+          <label for="option3">Money: -1, Energy: -10, Time: -15, Distance Traveled: 5</label>
         </li>
       </ul>
     </div>
   </section>
 
-  <section class="deck">
     <footer>
       <nav>
         <ul>
@@ -58,7 +63,7 @@
         </ul>
       </nav>
     </footer>
-  </section>
+
   <script src="js/game.js"></script>
 </body>
 

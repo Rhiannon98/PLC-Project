@@ -1,7 +1,16 @@
+*{
+  box-sizing: border-box;
+}
 html{
 
-  height: 100%;
-  background: radial-gradient(rgb(226, 240, 194), rgb(198, 233, 160), rgb(164, 207, 114));
+  height: 100%;  
+  background-color: #BDCA62;
+  animation: mymove 10s infinite;
+}
+
+@keyframes mymove {
+   50% {background-color: #E9F49F;
+  }
 }
 
 body {
@@ -10,8 +19,11 @@ body {
   margin: auto;
   margin-top: 20px;
 }
-header{
-  text-align: center;
+#logo {
+  width: 45%;
+  margin-left: -4em;
+  margin-bottom: -3em;
+
 }
 ul{
   text-align: center;
@@ -21,35 +33,123 @@ ul li{
   display: inline-block;
   text-decoration: none;
 }
-
-img {
-
-  background: repeating-radial-gradient(
-  circle,
-  #264900,
-  #8DBC5B 10px,
-  #426F10 10px, 
-  #d0f095 20px
-  );  
-  display: block;
-  margin: auto;
-  border-radius: 15px 70px;
+#map {
+  width: 100%;
+  max-height: 200px;
 }
-
-section .deck{
-
+#resource-list {
+  max-width: 25%;
+  border: 2px solid black;
+  padding-left: 2em;
+  padding-right: 2em;
+  background-color:#73B190;
+  font-weight: bold;
+  float: left;
+}
+p {
   text-align: center;
 }
+#options {
+  height: 100%;
+  padding: 1em;
+  text-align: center;
+  width: 70%;
+  display: inline-block;
+  }
+#button-list{
+ float: left;
+}
 
-.deck {
-
+button {
+  padding: 1.25em;
+  border-radius: 10px;
+  background:linear-gradient(#426F10, #d0f095);  
+  font-weight:bold;
+  margin: .5em;
+}
+button:hover {
+    background:linear-gradient( #d0f095,#426F10);  
+    cursor: pointer;
+}
+a{
   padding: .5em;
+}
+a:hover{
+  cursor: pointer;
+  border: 1px solid white;
+  border-radius: 10px;
+}
+
+.deck{
+  background-color: #47936A;
+  text-align: center;
+  padding: .9em;
   border: 2px solid #21332E;
   margin: auto;
+  border-radius: 10px;
 }
 
 .card {
-
-  display: table-cell;
+  text-align: center;
+  display: inline-block;
   position: relative;
+  height: 100%;
+
+}
+
+footer {
+  margin-top: 3em;
+}
+/* index page */
+#index-logo {
+
+  width: 50%;
+  border: solid 2px black;
+  border-radius: 100px 10px;
+}
+/* #index-header {
+
+} */
+#index-nav {
+  text-align: right;
+  overflow: hidden;
+}
+header nav ul{
+  list-style-type: none;
+  float: right;
+  width: auto;
+  clear: left;
+  margin-bottom: 0;
+  margin-right: 2em; 
+}
+
+header nav ul li {
+
+  display: inline-block;
+  line-height: 2em;
+  border: solid 2px black; 
+  border-radius: 25px 25px 0px 0px;
+  padding: .5em;
+  margin-left: -.25em;
+  background: radial-gradient( seagreen, darkgreen);
+  font-weight: bold;
+
+}
+nav ul li:hover{
+  background-color: gray;
+  color: white;
+}
+main {
+  text-align: center;
+  background-color: seagreen;
+  padding: 3em;
+  color: white;
+  font-weight: bold;
+}
+
+alert {
+  padding: 20px;
+  background-color: #f44336; /* Red */
+  color: white;
+  margin-bottom: 15px;
 }
