@@ -19,12 +19,7 @@ body {
   margin: auto;
   margin-top: 20px;
 }
-#logo {
-  width: 45%;
-  margin-left: -4em;
-  margin-bottom: -3em;
 
-}
 ul{
   text-align: center;
 }
@@ -48,6 +43,28 @@ ul li{
 }
 p {
   text-align: center;
+  border: 1px black solid;
+  border-radius: 25px;
+  background-color: #00391A;
+  color: white;
+  font-size: x-large;
+  font-family: sans-serif;
+  padding: 1em;
+  line-height: 1.25em;
+}
+dl{
+  border: 2px solid black;
+  float: left;
+  clear: left;
+  overflow: hidden;
+}
+dt{
+  background-color: aliceblue;
+  display: inline-block;
+  width: 99%;
+}
+dd{
+  background-color:#73B190;
 }
 #options {
   height: 100%;
@@ -57,7 +74,7 @@ p {
   display: inline-block;
   }
 #button-list{
- float: left;
+ float: right;
 }
 
 button {
@@ -66,6 +83,8 @@ button {
   background:linear-gradient(#426F10, #d0f095);  
   font-weight:bold;
   margin: .5em;
+  max-width: 75%;
+  min-width: 50%;
 }
 button:hover {
     background:linear-gradient( #d0f095,#426F10);  
@@ -85,8 +104,12 @@ a:hover{
   text-align: center;
   padding: .9em;
   border: 2px solid #21332E;
-  margin: auto;
-  border-radius: 10px;
+  margin: 0;
+  border-radius: 25px;
+  font-family: 'Share', sans-serif;
+  font-size: larger;
+  color: black;
+  overflow: hidden;
 }
 
 .card {
@@ -100,56 +123,4 @@ a:hover{
 footer {
   margin-top: 3em;
 }
-/* index page */
-#index-logo {
 
-  width: 50%;
-  border: solid 2px black;
-  border-radius: 100px 10px;
-}
-/* #index-header {
-
-} */
-#index-nav {
-  text-align: right;
-  overflow: hidden;
-}
-header nav ul{
-  list-style-type: none;
-  float: right;
-  width: auto;
-  clear: left;
-  margin-bottom: 0;
-  margin-right: 2em; 
-}
-
-header nav ul li {
-
-  display: inline-block;
-  line-height: 2em;
-  border: solid 2px black; 
-  border-radius: 25px 25px 0px 0px;
-  padding: .5em;
-  margin-left: -.25em;
-  background: radial-gradient( seagreen, darkgreen);
-  font-weight: bold;
-
-}
-nav ul li:hover{
-  background-color: gray;
-  color: white;
-}
-main {
-  text-align: center;
-  background-color: seagreen;
-  padding: 3em;
-  color: white;
-  font-weight: bold;
-}
-
-alert {
-  padding: 20px;
-  background-color: #f44336; /* Red */
-  color: white;
-  margin-bottom: 15px;
-}

@@ -91,7 +91,7 @@ new Question (' Quite suddenly an owl lands on you with a small letter attached 
 new Question ('A cat brushes your leg, so you move down to begin petting it. You notice that it is carrying a five dollar bill in its mouth. You attempt to remove the dollar from its mouth, but the cat will have none of it. You stare it down and prepare for the inevitable duel to the death. As you both circle each other, waiting for an opportunity to strike, a five dollar bill falls from the sky. You pick it up and you and the cat go on your way, death feud forgotten. Money + 5', 'money', -5);
 new Question ('Disturbingly, transit is working and on time. Nothing goes wrong and nothing unusual happens. You are fairly certain you have entered an alternate universe somehow.', 'time', 0);
 new Question ('A section of the city has been closed off by police for reason they refuse to discuss. You have to take a large detour around them. When you finish the detour you notice that they have moved downward and you need to take another detour. Finally you get ahead of the police who seem to be methodically searching this stree for something or someone.', 'time', 10);
-new Question('A bank robbery is occuring, but the robbers are short handed. They offer you a portion of the take if you help them out. You don your ridiculous face mask and take the fire extinguisher they give you, then walk into the bank. Several confusing minutes later you are getting out of a getaway van at your next stop, your pockets considerably heavier.', 'money', -25);
+new Question('A bank robbery is occuring, but the robbers are short handed. They offer you a portion of the take if you help them out. You don your ridiculous face mask and take the fire extinguisher they give you, then walk into the bank. Several confusing minutes later you are getting out of a getaway van at your next stop, your pockets considerably heavier. +25 Money', 'money', -25);
 new Question ('You are on your usual commute, suddenly you here screaming coming from behind you. The man is just screaming \'CHOCOLATE\' as loudly as he can as he gets closer to you. He grabs you by your shirt collar and lets another scream reverberate your brain. He calmly put you down, hands you money and steals your chocolate bar. You are unsure about this situation....  the distraction delayed your commute. -5 Time', 'time', 5);
 new Question ('Someone got offended, planet Earth stopped its orbit, and now everyone is dead. The planet gets to start over, but you lose.', 'energy', 100);
 new Question ('A pet pig ran into the street and totalled a Prius. Everyone stops to pet the pig, beacuse it\'s got and ouchy. You win 10 energy points, because one less Prius.', 'energy', -10);
@@ -240,36 +240,37 @@ function optionClick(event) {
 
   newQuestion.loadText();
   //computing differences in fantastic if else blocks
-  if (newQuestion.resource === 'energy') {
+  if (newQuestion.resource === 'distanceTravelled'){
+    currentPlayer.resources += newQuestion.amount;
+  }
+  else if (newQuestion.resource === 'energy') {
     currentPlayer.energy -= newQuestion.amount;
-    // console.log('i am energy');
 
   } else if (newQuestion.resource === 'time') {
     currentPlayer.time -= newQuestion.amount;
-    // console.log('i am time');
 
   } else if (newQuestion.resource === 'money') {
     currentPlayer.money -= newQuestion.amount;
-    // console.log('i am money');
   }
   // change the players resources based on the option that they clicked on
   if (clickedOption === 'option1') {
-    // currentPlayer.money -= 5;
-
-    currentPlayer.distanceTravelled += 3;
-    // console.log(currentPlayer);
+    currentPlayer.time -= 3;
+    currentPlayer.money -= 10;
+    currentPlayer.energy -= 2;
+    currentPlayer.distanceTravelled += 20;
   } else if
   (clickedOption === 'option2') {
-    // currentPlayer.time -= 5;
-
-    currentPlayer.distanceTravelled += 2;
-    // console.log(currentPlayer);
+    currentPlayer.time -= 7;
+    currentPlayer.money -= 5;
+    currentPlayer.energy -= 2;
+    currentPlayer.distanceTravelled += 10;
   }
   else if
   (clickedOption === 'option3') {
-    // currentPlayer.energy -= 5;
-    currentPlayer.distanceTravelled += 100;
-    // console.log(currentPlayer);
+    currentPlayer.time -= 15;
+    currentPlayer.money -= 1;
+    currentPlayer.energy -= 10;
+    currentPlayer.distanceTravelled += 5;
   }
 
   currentPlayer.score = currentPlayer.energy + currentPlayer.time + currentPlayer.money;
@@ -284,12 +285,14 @@ function optionClick(event) {
     alert('YOU WIN');
     localStorage.setItem('currentPlayer', JSON.stringify(currentPlayer));
     console.log(currentPlayer.finalScore);
+    location.href = 'leaderboard.html';
     return;
   }
   // if player has 0 of any resource = LOSER
   else if ((currentPlayer.money <= 0) || (currentPlayer.energy <= 0) || (currentPlayer.time <= 0)) {
     optionsElement.removeEventListener('click', optionClick);
     alert('YOU LOSER');
+    location.href = 'leaderboard.html';
     return;
   }
   // calling the render function to render all of the canvas elements per click
