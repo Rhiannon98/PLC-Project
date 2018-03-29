@@ -1,5 +1,5 @@
 
-html {
+/* html {
 
   height: 100%;
   background-color: #BDCA62;
@@ -9,7 +9,8 @@ html {
 @keyframes mymove {
    50% {background-color: #E9F49F;
   }
-}
+} */
+
 
 
 header img {
@@ -20,6 +21,7 @@ header img {
   border-radius: 50px 15px;
 
 }
+
 
 h1 {
 
