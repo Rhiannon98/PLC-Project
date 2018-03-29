@@ -74,15 +74,15 @@ function getRandomQuestion() {
 }
 
 // creating initial question
-var initialQuestion = new Question('Choose an option!', 'energy', 0);
+var initialQuestion = new Question('Good Morning! Recently, you\'ve made the decision to change career path and become a Web Developer. However, your coding skills need work. You\'ve enrolled into CodeFellows, Seattle\'s premier coding bootcamp. However, the only thing preventing you from obtaining your new career goals is the dreaded Puget Sound Regional Transit. You have to navigate your way to the school without running out of money, energy, or time. This morning, you\'ve made it to the first transit station of your commute with time to spare. Everything looks like it is on-time but you are smart and know that won\'t last. Choose your method of transport below keeping in mind, you have a long commute ahead!', 'energy', 0);
 //creating questions
-new Question('Choose a different option?', 'energy', 6);
-new Question('Are you an idiot?', 'energy', -70);
-new Question('Are you a donkry?', 'money', 10);
-new Question('Are you an ogre?', 'time', 50);
-new Question('Are you an orc?', 'energy', 1);
-new Question('Are you a carrot?', 'time', 10);
-new Question('Are you an elf?', 'money', -5);
+new Question('You see a friend on your commute! She has an extra coffee and a donut! Your energy level is increased by 11! Choose the next method of transportation below to your next stop.', 'energy', -11);
+new Question('You are exhausted from partying last night! Your energy level suffers (-5 energy). Choose the next method of transportation', 'energy', 5);
+new Question('Rich Uncle Pennybags has passed away. Luckily you were his most favorite of the neices and nephews. Collect your inheritance! (Money +20)', 'money', -20);
+new Question('Whomp Whomp! A $8 billion dollar tunnel-digging machine has broked down after colliding with a coca-cola bottle cap. This is causing a slowdown  on every route! (Time -20)', 'time', 20);
+new Question('That was weird! Your transit route went exactly as expected. How long will that last?', 'energy', -1);
+new Question('Where is all the traffic? Does everyone else have a holiday except for you? (Time +5)', 'time', -5);
+new Question('Not again! Somehow a third avenue crazy has interupted your commute. You try to politely say that you do not have spare money but get bombarded with insults. (Energy -5)', 'energy', 5);
 
 
 
@@ -136,9 +136,10 @@ function findPlayer(element) {
 }
 
 // TODO: STRETCH Use options instead of hardcoded values you apes
-var testOption1 = new Option('test', 5, 5, 5);
-var testOption2 = new Option('test2', 3, 3, 3);
-var testOption3 = new Option('test3', 1, 1, 1);
+//(name, time, money, energy, distance)
+var testOption1 = new Option('test', 3, 10, 2, 20);
+var testOption2 = new Option('test2', 7, 5, 2, 10);
+var testOption3 = new Option('test3', 15, 1, 10, 5);
 
 //Renders the resource bar and map and progress bar
 function render(){
