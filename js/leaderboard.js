@@ -18,7 +18,6 @@ function LeaderBoard(name, score) {
   this.score = score;
   leaderArray.push(this);
 }
-
 console.log(leaderArray);
 
 // new LeaderBoard(currentPlayer.name, finalScore);
@@ -39,8 +38,13 @@ function displayLeaderboard() {
   for (var i in playersArray) {
     // getting the element from the playersArray!
     new LeaderBoard(playersArray[i].name, finalScore);
+    // creating an li element per player
+    var leaderList = document.createElement('li');
+    // populating the li element
+    leaderList.textContent = leaderArray[i].name + '>>>>>>>' + finalScore;
+    // appending the child (li) to the parent (leaders)
+    topPlayers.appendChild(leaderList);
   }
-
 }
 
 displayLeaderboard();
