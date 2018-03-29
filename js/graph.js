@@ -39,7 +39,7 @@ function findNode(targetName, start, visited = []){
     }
     return false;
   }
-} 
+}
 //This function will find a target Node by its name, and then add a new Node to its links.
 function addNode(node, targetName, start){
   var targetNode = findNode(targetName, start);
