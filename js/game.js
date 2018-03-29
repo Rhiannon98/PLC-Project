@@ -29,6 +29,7 @@ function Player(name, time, money, energy, distanceTravelled = 0) {
   this.money = money;
   this.energy = energy;
   this.distanceTravelled = distanceTravelled;
+  this.score = 0;
   playerArray.push(this);
 }
 
@@ -270,6 +271,8 @@ function optionClick(event) {
     currentPlayer.distanceTravelled += 100;
     // console.log(currentPlayer);
   }
+
+  currentPlayer.score = currentPlayer.energy + currentPlayer.time + currentPlayer.money;
   // supposed saving progress as the player goes
   saveProgress();
 
@@ -279,7 +282,6 @@ function optionClick(event) {
     //this is where the game ends
     optionsElement.removeEventListener('click', optionClick);
     alert('YOU WIN');
-    currentPlayer.finalScore = (currentPlayer.energy + currentPlayer.time + currentPlayer.money);
     localStorage.setItem('currentPlayer', JSON.stringify(currentPlayer));
     console.log(currentPlayer.finalScore);
     return;
