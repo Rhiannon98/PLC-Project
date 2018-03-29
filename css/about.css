@@ -19,13 +19,17 @@ header {
   width: 100%;
   overflow: hidden;
   margin:0px;
+  margin-top: 20px;
   background-color: cadetblue;
   border-radius: 25px;
 }
 header img{
+
   float: left;
-  margin: 0;
-  width: 50%;
+  margin: 20px 0px 0px 20px;  
+  width: 30%;
+  border: solid 2px black;
+  border-radius: 100px 10px;
 }
 
 header nav ul{

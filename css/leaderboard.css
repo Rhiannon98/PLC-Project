@@ -11,12 +11,19 @@ html {
   }
 }
 
+Body{
+
+  height: 100%;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
 header img {
 
   width: 300px;
-  margin: 50px;
+  margin: 50px 0px 20px 30px;
   border: solid 2px black;
-  border-radius: 50px 15px;
+  border-radius: 70px 10px;
 
 }
 
@@ -40,6 +47,7 @@ p {
 
 ol {
 
+  position: relative;
   width: 100%;
   list-style-position: inside;
   display: inline-block;
@@ -55,5 +63,29 @@ ol {
 li {
 
   padding: 20px;
+}
+
+footer {
+
+  position: absolute;
+  height: 50px;
+  bottom: 100px;
+  right: 180px;
+   
+}
+
+footer li {
+
+  display: inline-block;
+  text-decoration: none;
+  margin-bottom: 30px;
+
+}
+
+footer li a {
+
+  text-decoration: none;
+  font-size: 1.5em;
+  font-family: 'Faster One', cursive;
 }
 
