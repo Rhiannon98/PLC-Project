@@ -40,13 +40,28 @@ h1 {
   color: rgb(175, 25, 57); 
   margin-top:2em;
 }
+h1:hover {
+  cursor: default;
+}
 form{
   text-align: center;
   line-height: 2em;
 }
 input{
   width:30%;
-  line-height: 2em;
+  line-height: 2.3em;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: beige;
+  font-size: large;
+  padding: .25em;
+}
+input:hover {
+  cursor: text;
+  border: 2px solid blue;
+}
+input:focus {
+  border: 2px solid blue;
 }
 button {
   padding: .25em;
