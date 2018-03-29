@@ -42,7 +42,10 @@ p {
 
 ol {
 
-  margin: auto;
+  width: 100%;
+  list-style-position: inside;
+  display: inline-block;
+  margin:  0px auto;
   font-family: 'Share', cursive;
   font-size: 2em;
   text-align: center;
