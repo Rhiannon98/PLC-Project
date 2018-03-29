@@ -106,7 +106,7 @@ a:hover{
   border: 2px solid #21332E;
   margin: 0;
   border-radius: 25px;
-  font-family: sans-serif;
+  font-family: 'Share', sans-serif;
   font-size: larger;
   color: black;
   overflow: hidden;
@@ -123,56 +123,4 @@ a:hover{
 footer {
   margin-top: 3em;
 }
-/* index page */
-#logo {
 
-  width: 50%;
-  border: solid 2px black;
-  border-radius: 100px 10px;
-}
-/* #index-header {
-
-} */
-#index-nav {
-  text-align: right;
-  overflow: hidden;
-}
-header nav ul{
-  list-style-type: none;
-  float: right;
-  width: auto;
-  clear: left;
-  margin-bottom: 0;
-  margin-right: 2em; 
-}
-
-header nav ul li {
-
-  display: inline-block;
-  line-height: 2em;
-  border: solid 2px black; 
-  border-radius: 25px 25px 0px 0px;
-  padding: .5em;
-  margin-left: -.25em;
-  background: radial-gradient( seagreen, darkgreen);
-  font-weight: bold;
-
-}
-nav ul li:hover{
-  background-color: gray;
-  color: white;
-}
-main {
-  text-align: center;
-  background-color: seagreen;
-  padding: 3em;
-  color: white;
-  font-weight: bold;
-}
-
-alert {
-  padding: 20px;
-  background-color: #f44336; /* Red */
-  color: white;
-  margin-bottom: 15px;
-}

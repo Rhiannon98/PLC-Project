@@ -68,7 +68,7 @@ li {
 
 footer {
 
-  position: absolute;
+  float: right;
   height: 50px;
   bottom: 100px;
   right: 180px;
