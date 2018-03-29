@@ -1,5 +1,5 @@
 
-/* html {
+html {
 
   height: 100%;
   background-color: #BDCA62;
@@ -9,7 +9,7 @@
 @keyframes mymove {
    50% {background-color: #E9F49F;
   }
-} */
+}
 
 
 
@@ -38,5 +38,21 @@ p {
   font-family: 'Share', cursive;
   font-size: 3em;
   text-align: center;
+}
+
+ol {
+
+  margin: auto;
+  font-family: 'Share', cursive;
+  font-size: 2em;
+  text-align: center;
+  margin-top: 30px;
+  padding: 20px;
+
+}
+
+li {
+
+  padding: 20px;
 }
 
