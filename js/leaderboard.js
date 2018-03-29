@@ -20,8 +20,6 @@ function LeaderBoard(name, score) {
 }
 console.log(leaderArray);
 
-// new LeaderBoard(currentPlayer.name, finalScore);
-
 //function to sort through the playerArray by points for leaderboard
 function compareInArray(a, b) {
   // sorts the scores in descending order
@@ -46,5 +44,5 @@ function displayLeaderboard() {
     topPlayers.appendChild(leaderList);
   }
 }
-
+// calling so that the stuff renders
 displayLeaderboard();

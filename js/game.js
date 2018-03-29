@@ -28,6 +28,8 @@ function Player(name, time, money, energy, distanceTravelled = 0) {
   playerArray.push(this);
 }
 
+// TODO: add default players to render in the leaderboard screen
+// so other 'players' can be weirded out and baffled is all
 
 // to create new options
 function Option(name, time, money, energy, distance) {
@@ -123,10 +125,12 @@ function saveProgress() {
   // storing player array in local storage.
   localStorage.setItem('playerArray', JSON.stringify(playerArray));
 }
+
 //This will be passed to an array that will use it to find the playerName that was entered in localStorage
 function findPlayer(element) {
   return element.name === JSON.parse(localStorage.getItem('validateInput'));
 }
+
 // TODO: STRETCH Use options instead of hardcoded values you apes
 // var testOption1 = new Option('test', 5, 5, 5);
 // var testOption2 = new Option('test2', 3, 3, 3);
@@ -138,7 +142,7 @@ function optionClick(event) {
   // button user clicked on
   var clickedOption = event.target.id;
   //get the first 6 letters of the id to see if they equal option
-  var testOption = clickedOption.slice(0,6);
+  var testOption = clickedOption.slice(0, 6);
   // console.log(clickedOption);
   //only run code if the user clicks on a button
   console.log(testOption);
@@ -182,7 +186,7 @@ function optionClick(event) {
   else if
   (clickedOption === 'option3') {
     // currentPlayer.energy -= 5;
-    currentPlayer.distanceTravelled+=100;
+    currentPlayer.distanceTravelled += 100;
     // console.log(currentPlayer);
   }
   // supposed saving progress as the player goes
@@ -202,7 +206,7 @@ function optionClick(event) {
   // if player has 0 of any resource = LOSER
   else if ((currentPlayer.money <= 0) || (currentPlayer.energy <= 0) || (currentPlayer.time <= 0)) {
     optionsElement.removeEventListener('click', optionClick);
-    alert('YOU S;UCK;');
+    alert('YOU LOSER');
     return;
   }
 }
