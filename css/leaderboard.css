@@ -2,27 +2,41 @@
 /* html {
 
   height: 100%;
-  background: radial-gradient(rgb(226, 240, 194), rgb(198, 233, 160), rgb(164, 207, 114));
-  animation: mymove 5s infinite;
+  background-color: #BDCA62;
+  animation: mymove 10s infinite;
 }
 
 @keyframes mymove {
-   50%{background: radial-gradient(rgb(240, 199, 194), rgb(233, 160, 160), rgb(207, 114, 114));
+   50% {background-color: #E9F49F;
   }
 } */
 
 
-/* header {
 
-  background: snow;
-} */
+header img {
+
+  width: 300px;
+  margin: 50px;
+  border: solid 2px black;
+  border-radius: 50px 15px;
+
+}
+
 
 h1 {
 
+  font-family: 'Faster One', cursive;
   text-align: center;
   text-decoration-style: double;
-  font-size: 4em;
-  color: blueviolet;
+  font-size: 5em;
+  color: rgb(175, 25, 57);
   
+}
+
+p {
+
+  font-family: 'Share', cursive;
+  font-size: 3em;
+  text-align: center;
 }
 
