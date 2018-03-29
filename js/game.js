@@ -94,7 +94,13 @@ new Question('A bank robbery is occuring, but the robbers are short handed. They
 new Question ('You are on your usual commute, suddenly you here screaming coming from behind you. The man is just screaming \'CHOCOLATE\' as loudly as he can as he gets closer to you. He grabs you by your shirt collar and lets another scream reverberate your brain. He calmly put you down, hands you money and steals your chocolate bar. You are unsure about this situation....  the distraction delayed your commute. -5 Time', 'time', 5);
 new Question ('Someone got offended, planet Earth stopped its orbit, and now everyone is dead. The planet gets to start over, but you lose.', 'energy', 100);
 new Question ('A pet pig ran into the street and totalled a Prius. Everyone stops to pet the pig, beacuse it\'s got and ouchy. You win 10 energy points, because one less Prius.', 'energy', -10);
-
+new Question ('A siren begins to blare, as usual in a over-populated city. You and everyone else stops to allow them to pass, you are minorly inconvenienced. -5 time.', 'time', 5);
+new Question ('Miss Peregrine invited you in her time-loop, now you stuck in infinite commute.', 'time', 100);
+new Question ('You feel a grumbling in your stomach, and a slight discomfort. You hope your commute goes faster so that you are able to get to your destination to use the clean bathrooms there as opposed to anything that is public. -5 energy.', 'energy', 5);
+new Question ('You trip and faceplant the asphalt, your pride is hurt and you had most certainly slowed down. But! You have found a $10 bill, it almost gets you a hand-crated gluten free tulipmilk-latte.', 'money', -10);
+new Question ('There is a warning sign that you or anyone else have ever seen, judging from other bystanders faces. The sign is like an animal crossing sign, except you do not recognize the animals pictured. Suddenly, you understand as a hoard of tourists on segways goes by you. Oh lord, it is like an entire office building of people going by, you feel yourself aging and becoming more impatient as the hundreds of people on slow segways blow by. -10 Time', 'time', 15);
+new Question ('It is really early today and as you pass a misty field, you see a gentleman shuffling towards you. On closer inspection OMFG! IT\'S THE ZOMBIE APOCALIPSE! You enter warp speed, and get to the school ahead of time. You Win! (At least for now, go get yourself a cat \'cause you know OMFG! IT\'S THE ZOMBIE APOCALIPSE!', 'distanceTravelled', -100);
+new Question ('You become lost in thought and are suddenly at your destination. Wait... no, this is the space needle. WHY ARE YOU HERE?!?! HOW DID YOU COMPLETELY MESS UP YOUR ROUTE LIKE THIS?!?! *sigh* you have to backtrack now. Bummer. -15 Distance To Destination.', 'distanceTravelled', -15);
 
 // pull the userName from validateInput in app.js
 // confirm that this user is or is not the same as one in the playerArray
