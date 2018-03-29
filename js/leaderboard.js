@@ -28,8 +28,6 @@ function compareInArray(a, b) {
 //sorts array by player scores
 leaderArray.sort(compareInArray);
 
-//TODO: display sorted list on DOM
-
 // displays the leader board on the page after going through the array
 function displayLeaderboard() {
   // going through the length of playersArray (playerArray)

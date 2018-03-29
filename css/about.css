@@ -3,24 +3,33 @@
   box-sizing: border-box;
 }
 
-body {
+html {
 
-  height:100%;
-  background: radial-gradient(darkgreen, green, seagreen, darkgreen);
-  
+  height: 100%;  
+  background-color: #BDCA62;
+  animation: mymove 7s infinite;
+}
+
+@keyframes mymove {
+   50% {background-color: #E9F49F;
+  }
 }
 
 header {
   width: 100%;
   overflow: hidden;
   margin:0px;
+  margin-top: 20px;
   background-color: cadetblue;
   border-radius: 25px;
 }
 header img{
+
   float: left;
-  margin: 0;
-  width: 50%;
+  margin: 20px 0px 0px 20px;  
+  width: 30%;
+  border: solid 2px black;
+  border-radius: 100px 10px;
 }
 
 header nav ul{
@@ -35,7 +44,7 @@ header nav ul{
 
 header nav ul li {
 
-  display: inline-block;
+  display: inline-block;  
   line-height: 2em;
   border: solid 2px black; 
   border-radius: 25px 25px 0px 0px;
@@ -45,6 +54,12 @@ header nav ul li {
   font-weight: bold;
 
 }
+
+header nav ul li a {
+
+  text-decoration: none;
+}
+
 nav ul li:hover{
   background-color: gray;
   color: white;

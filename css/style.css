@@ -3,8 +3,14 @@
 }
 html{
 
-  height: 100%;
-  background: radial-gradient(rgb(226, 240, 194), rgb(198, 233, 160), rgb(164, 207, 114));
+  height: 100%;  
+  background-color: #BDCA62;
+  animation: mymove 10s infinite;
+}
+
+@keyframes mymove {
+   50% {background-color: #E9F49F;
+  }
 }
 
 body {
@@ -17,6 +23,7 @@ body {
   width: 45%;
   margin-left: -4em;
   margin-bottom: -3em;
+
 }
 ul{
   text-align: center;
@@ -95,7 +102,10 @@ footer {
 }
 /* index page */
 #index-logo {
-  width: 70%;
+
+  width: 50%;
+  border: solid 2px black;
+  border-radius: 100px 10px;
 }
 /* #index-header {
 
@@ -135,4 +145,11 @@ main {
   padding: 3em;
   color: white;
   font-weight: bold;
+}
+
+alert {
+  padding: 20px;
+  background-color: #f44336; /* Red */
+  color: white;
+  margin-bottom: 15px;
 }
