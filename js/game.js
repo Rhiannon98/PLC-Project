@@ -132,9 +132,9 @@ function findPlayer(element) {
 }
 
 // TODO: STRETCH Use options instead of hardcoded values you apes
-// var testOption1 = new Option('test', 5, 5, 5);
-// var testOption2 = new Option('test2', 3, 3, 3);
-// var testOption3 = new Option('test3', 1, 1, 1);
+var testOption1 = new Option('test', 5, 5, 5);
+var testOption2 = new Option('test2', 3, 3, 3);
+var testOption3 = new Option('test3', 1, 1, 1);
 
 // creating click event function
 function optionClick(event) {
