@@ -44,7 +44,7 @@ header nav ul{
 
 header nav ul li {
 
-  display: inline-block;
+  display: inline-block;  
   line-height: 2em;
   border: solid 2px black; 
   border-radius: 25px 25px 0px 0px;
@@ -54,6 +54,12 @@ header nav ul li {
   font-weight: bold;
 
 }
+
+header nav ul li a {
+
+  text-decoration: none;
+}
+
 nav ul li:hover{
   background-color: gray;
   color: white;
