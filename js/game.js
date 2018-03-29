@@ -135,54 +135,64 @@ function findPlayer(element) {
   return element.name === JSON.parse(localStorage.getItem('validateInput'));
 }
 
-// TODO: STRETCH Use options instead of hardcoded values you apes
-var testOption1 = new Option('test', 5, 5, 5);
-var testOption2 = new Option('test2', 3, 3, 3);
-var testOption3 = new Option('test3', 1, 1, 1);
+// // TODO: STRETCH Use options instead of hardcoded values you apes
+// var testOption1 = new Option('test', 5, 5, 5);
+// var testOption2 = new Option('test2', 3, 3, 3);
+// var testOption3 = new Option('test3', 1, 1, 1);
 
 //Renders the resource bar and map and progress bar
-function render(){
+function render() {
   renderResources();
   renderProgressBar();
 }
-function renderResources(){
+// creating a a list of the players resources as they update
+function renderResources() {
   energyElement.textContent = 'Energy: ' + currentPlayer.energy;
   moneyElement.textContent = 'Money: ' + currentPlayer.money;
   timeElement.textContent = 'Time: ' + currentPlayer.time;
 }
+
 //TODO: Write renderMap
 // function renderMap(){
 
 // }
-//TODO: write renderProgressBar
-function renderProgressBar(){
-  if (canvasElement.getContext){
-    console.log('Im here');
-    var context = canvasElement.getContext('2d');
-    var travelledAmount = currentPlayer.distanceTravelled/endPoint*canvasElement.width;
-    var color = '#000000';
-    console.log(context);
 
-    if (currentPlayer.distanceTravelled/endPoint < 0.25){
+// name is self explanatory
+function renderProgressBar() {
+  // to ensure a browser supports canvas elements
+  // we will refuse to draw the chart
+  if (canvasElement.getContext) {
+    // we need to get the drawing box (context) in order to render the canvas
+    var context = canvasElement.getContext('2d');
+    // calculated where the progress bar would be
+    // % progress the player made = how 'full' the bar is
+    var travelledAmount = currentPlayer.distanceTravelled / endPoint * canvasElement.width;
+    // color var to be able to change the color later in this function
+    var color = '#000000';
+    // TODO: get good colours
+
+    // rest of the ifs and else ifs are assigning the color for the bar at that % it os filled
+    if (currentPlayer.distanceTravelled / endPoint < 0.25) {
       color = '#ff0000';
     }
-    else if (currentPlayer.distanceTravelled/endPoint < 0.5) {
+    else if (currentPlayer.distanceTravelled / endPoint < 0.5) {
       color = '#ff6200';
     }
-    else if (currentPlayer.distanceTravelled/endPoint < 0.75) {
+    else if (currentPlayer.distanceTravelled / endPoint < 0.75) {
       color = '#00ff00';
     }
     else {
       color = '#0000ff';
     }
-
+    // draws the amount the player has progressed
     context.fillStyle = color;
-    context.fillRect(0, canvasElement.height-30, travelledAmount, 30);
-
+    context.fillRect(0, canvasElement.height - 30, travelledAmount, 30);
+    // drawng the empty box that they 'fill'
     context.fillStyle = '#000000';
-    context.strokeRect(0, canvasElement.height-30, canvasElement.width, 30);
+    context.strokeRect(0, canvasElement.height - 30, canvasElement.width, 30);
 
   }
+  // if browser does not render canvas element, console gets this
   else {
     console.log('error');
   }
@@ -262,6 +272,7 @@ function optionClick(event) {
     alert('YOU LOSER');
     return;
   }
+  // calling the render function to render all of the canvas elements per click
   render();
 }
 
@@ -277,6 +288,8 @@ var currentPlayer = playerArray[playerArray.findIndex(findPlayer)];
 
 // calling the first Question function
 initialQuestion.loadText();
+// initial empty bar on page load
+// unless progress cannot be shown... sucks for them....
 render();
 
 
