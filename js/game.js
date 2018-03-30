@@ -287,11 +287,21 @@ function optionClick(event) {
     return;
   }
   // if player has 0 of any resource = LOSER
-  else if ((currentPlayer.money <= 0) || (currentPlayer.energy <= 0) || (currentPlayer.time <= 0)) {
+  else if (currentPlayer.money <= 0) {
     optionsElement.removeEventListener('click', optionClick);
-    alert('YOU LOSER');
+    alert('There\'s a nice tent on third avenue with your name on it. You\'re out of money. You lose.');
     location.href = 'leaderboard.html';
     return;
+  }
+  else if (currentPlayer.energy <= 0){
+    optionsElement.removeEventListener('click', optionClick);
+    alert('I get it, really. Go take a nap and try again another day. You\'re out of energy. You lose.');
+    location.href = 'leaderboard.html';
+    return;
+  } else if (currentPlayer.time <= 0){
+    optionsElement.removeEventListener('click', optionClick);
+    alert('HOW EMBARRASSING! You are way too late. You ran out of time. You lose.');
+    location.href = 'leaderboard.html';
   }
   // calling the render function to render all of the canvas elements per click
   render();
