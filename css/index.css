@@ -17,7 +17,8 @@ header img {
   border-radius: 70px 10px;
 }
 ul {
-  float: right;  
+  float: right; 
+  padding-right: 2.5em;
 }
 li {
   display: inline-block;
@@ -38,7 +39,9 @@ h1 {
   text-align: center;
   font-size: 3em;
   color: rgb(175, 25, 57); 
-  margin-top:2em;
+  margin-bottom:1em;
+  margin-right: 1em;
+  margin-left: 1em;
 }
 h1:hover {
   cursor: default;
@@ -46,6 +49,7 @@ h1:hover {
 form{
   text-align: center;
   line-height: 2em;
+  margin-bottom: 2em;
 }
 input{
   width:30%;
@@ -88,6 +92,8 @@ p {
   padding: 1.2em;
   background-color: rgba(117, 190, 218, 0.5);;
   border-radius: 25px;
+  margin-right: 2em;
+  margin-left: 2em;
 }
 ol {
 
