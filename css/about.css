@@ -16,11 +16,10 @@ html {
 }
 
 header {
-  width: 100%;
+  width: 80%;
   overflow: hidden;
-  margin:0px;
+  margin: auto;
   margin-top: 20px;
-  background-color: cadetblue;
   border-radius: 25px;
 }
 header img{
@@ -32,41 +31,38 @@ header img{
   border-radius: 100px 10px;
 }
 
-header nav ul{
+nav ul{
   list-style-type: none;
-  float: right;
+  text-align: right;
   width: auto;
   clear: left;
   margin-bottom: 0;
   margin-right: 2em;
+  font-size: larger;
+}
+
+nav ul li {
   
-}
-
-header nav ul li {
-
   display: inline-block;  
-  line-height: 2em;
-  border: solid 2px black; 
-  border-radius: 25px 25px 0px 0px;
-  padding: .5em;
-  margin-left: -.25em;
-  background: radial-gradient( seagreen, darkgreen);
-  font-weight: bold;
-
+  line-height: 1.5em;
+  padding: 1em;
+  margin-bottom: 2em;
 }
 
-header nav ul li a {
-
+a {
   text-decoration: none;
+  font-size: 1.2em;
+  font-family: 'Faster One', cursive;
 }
 
-nav ul li:hover{
-  background-color: gray;
+nav ul li :hover{
   color: white;
 }
 
 .cardsection {
+
   width: 100%;
+  margin-top: 30px;
   text-align: center;
 }
 
@@ -86,16 +82,37 @@ nav ul li:hover{
 }
 
 section div header {
-
   background: cadetblue;
   border-radius: 0px;
+  width: 100%;
+  font-size: x-large;
+  margin-top:-.25px;
+  padding-top: .25em;
+  padding-bottom: .25em;
+  font-family:sans-serif;
+  font-weight: bold;
 }
-
+strong{
+  font-size: large;
+}
 footer {
 
   text-align: center;
   margin-top: 3em;
 }
+
+#anthony {
+
+  width: 300px;
+  height: 300px;
+}
+
+#timea {
+
+  width: 300px;
+  height: 300px;
+}
+
 
 
 

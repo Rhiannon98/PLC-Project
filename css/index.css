@@ -1,0 +1,117 @@
+
+html {
+
+  height: 100%;  
+  background-color: #BDCA62;
+  animation: mymove 7s infinite;
+}
+@keyframes mymove {
+   50% {background-color: #E9F49F;
+  }
+}
+
+header img {
+  width: 300px;
+  margin: 50px 0px 20px 30px;
+  border: solid 2px black;
+  border-radius: 70px 10px;
+}
+ul {
+  float: right; 
+  padding-right: 2.5em;
+}
+li {
+  display: inline-block;
+  text-decoration: none;
+  margin-bottom: 30px;
+}
+li a {
+  text-decoration: none;
+  font-size: 1.5em;
+  font-family: 'Faster One', cursive;
+}
+a:hover {
+  color: red;
+}
+
+h1 {
+  font-family: 'Faster One', cursive;
+  text-align: center;
+  font-size: 3em;
+  color: rgb(175, 25, 57); 
+  margin-bottom:1em;
+  margin-right: 1em;
+  margin-left: 1em;
+}
+h1:hover {
+  cursor: default;
+}
+form{
+  text-align: center;
+  line-height: 2em;
+  margin-bottom: 2em;
+}
+input{
+  width:30%;
+  line-height: 2.3em;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: beige;
+  font-size: large;
+  padding: .25em;
+}
+input:hover {
+  cursor: text;
+  border: 2px solid blue;
+}
+input:focus {
+  border: 2px solid blue;
+}
+button {
+  padding: .25em;
+  border-radius: 10px;
+  background:linear-gradient(#426F10, #d0f095);  
+  font-weight:bold;
+  font-size: large;
+  margin: .5em;
+  width: 10%;
+}
+button:hover {
+    background:linear-gradient( #d0f095,#426F10);  
+    cursor: pointer;
+}
+Body{
+padding-left: 1em;
+padding-right: 1em;
+}
+p {
+  font-family: 'Share', cursive;
+  font-size: 1.7em;
+  text-align: center;
+  font-weight: bold;
+  padding: 1.2em;
+  background-color: rgba(117, 190, 218, 0.5);;
+  border-radius: 25px;
+  margin-right: 2em;
+  margin-left: 2em;
+}
+ol {
+
+  position: relative;
+  width: 100%;
+  list-style-position: inside;
+  display: inline-block;
+  margin:  0px auto;
+  font-family: 'Share', cursive;
+  font-size: 2em;
+  text-align: center;
+  margin-top: 30px;
+  padding: 20px;
+
+}
+
+li {
+
+  padding: 20px;
+}
+

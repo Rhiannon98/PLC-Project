@@ -62,17 +62,14 @@ ol {
 }
 
 li {
-
   padding: 20px;
 }
 
 footer {
-
-  position: absolute;
+  float: right;
   height: 50px;
   bottom: 100px;
   right: 180px;
-   
 }
 
 footer li {
