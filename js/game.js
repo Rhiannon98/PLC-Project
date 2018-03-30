@@ -3,7 +3,7 @@
 // TODO: get this working ... better
 
 
-var endPoint = 99;
+var endPoint = 60;
 
 
 //holding the various options
